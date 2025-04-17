@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirWing | Help</title>
+    <link rel="shortcut icon" href="planes.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="styles.css">
+ 
+</head>
+<body>
+    <!-- Sumedha  -->
+     <!-- Start  -->
+          <!-- navigation bar -->
+          <header>
+            <div class="top-bar" id="topbar">
+                <p>Join AirWings today and save up to 20% on your flight using code TRAVEL at checkout. Promotion valid for new starsonly.</p>
+            </div>
+                <nav>
+                    <div class="logo">AirWings</div>
+                    <div class="nav-bar">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="hotel_section.html">Hotels</a></li>
+                        <li><a href="#Contacts">Contact</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="help.html">Help</a></li>
+                    </ul>
+                    </div>
+                    <div class="nav-icons">
+                        <div class="search-container" style="margin-top: 5px;">
+                            <i class="fa-solid fa-search" id="searchIcon" onclick="toggleSearchBar()"></i>
+                            <input type="text" id="searchBar" placeholder="Search..." class="search-bar">
+                            <div id="searchSuggestions" class="suggestions-container" style="display: none;"></div>
+                        </div>
+                        <div class="country">
+                            <p id="countryname">..</p>
+                            <img src="flag.png" id="countryflag" style="position: relative; height: 24px; width: 24px;margin-top: 8px; margin-left: -5px; margin-right: -5px; border: 1px solid black; border-radius: 50%;">
+                        </div>                
+                        <div id="userContainer" style="margin-left: -5px;">
+                            <a href="login.html" id="loginLink" style="text-decoration: none; font-size: 14px;">
+                                Sign In &nbsp;<i class="fa-solid fa-user" style="font-size: 16px;"></i>
+                            </a>
+                        </div>                
+                    </div>
+                </nav>
+                </header>
+             <!-- end -->
+
+        <!-- Sumedha  -->
+         <!-- Start  -->
+          <!-- This is the help section containing search  -->
+        <h1>Hello, how can we help?</h1>
+        <div class="searches-container">
+            <div class="searches-box">
+                <!-- <i class="fas fa-search"></i> -->
+                <input type="text1" placeholder="Search..." style="background-color: white;">
+                <button class="searches-button" style="height: 50px;">Search</button>
+            </div>
+        </div>
+   
+    <!-- This is the help container when clicked contains answer  -->
+    <div class="help-container">
+        <div class="help-box" onclick="showFAQ('refunds')">
+            <i class="fas fa-undo-alt"></i>
+            <p>Refunds</p>
+        </div>
+        <div class="help-box" onclick="showFAQ('orders')">
+            <i class="fas fa-box"></i>
+            <p>Orders</p>
+        </div>
+        <div class="help-box" onclick="showFAQ('payments')">
+            <i class="fas fa-credit-card"></i>
+            <p>Payments</p>
+        </div>
+        <div class="help-box" onclick="showFAQ('shipping')">
+            <i class="fas fa-truck"></i>
+            <p>Shipping</p>
+        </div>
+        <div class="help-box" onclick="showFAQ('security')">
+            <i class="fas fa-user-shield"></i>
+            <p>Account Security</p>
+        </div>
+        <div class="help-box" onclick="showFAQ('support')">
+            <i class="fas fa-comments"></i>
+            <p>Customer Support</p>
+        </div>
+    </div>
+
+    <!-- This is the answers of each of the questions  -->
+    <div class="faq-container" id="refunds">
+        <h3>Refunds FAQ</h3>
+        <p><strong>Q: How do I request a refund?</strong></p>
+        <p>A: You can request a refund by contacting our customer support or through the 'Refunds' section in your account.</p>
+        <p><strong>Q: How long will the refund process take?</strong></p>
+        <p>A: Refunds typically take 3-5 business days to process, depending on your payment method.</p>
+    </div>
+
+    <div class="faq-container" id="orders">
+        <h3>Orders FAQ</h3>
+        <p><strong>Q: How can I track my order?</strong></p>
+        <p>A: You can track your order through the 'My Orders' section in your account.</p>
+        <p><strong>Q: Can I change my order after it's placed?</strong></p>
+        <p>A: Orders can only be changed within 30 minutes of being placed. After that, you'll need to cancel and reorder.</p>
+    </div>
+
+    <div class="faq-container" id="payments">
+        <h3>Payments FAQ</h3>
+        <p><strong>Q: What payment methods are accepted?</strong></p>
+        <p>A: We accept credit/debit cards, PayPal, and other secure online payment options.</p>
+        <p><strong>Q: Is it safe to enter my payment details?</strong></p>
+        <p>A: Yes, we use SSL encryption to ensure that your payment details are always safe and secure.</p>
+    </div>
+
+    <div class="faq-container" id="shipping">
+        <h3>Shipping FAQ</h3>
+        <p><strong>Q: How long does shipping take?</strong></p>
+        <p>A: Shipping times vary by location, but generally, it takes 5-7 business days.</p>
+        <p><strong>Q: Can I change my shipping address after placing the order?</strong></p>
+        <p>A: Shipping addresses can only be updated before the order is dispatched. Please contact customer support for assistance.</p>
+    </div>
+
+    <div class="faq-container" id="security">
+        <h3>Account Security FAQ</h3>
+        <p><strong>Q: How can I reset my password?</strong></p>
+        <p>A: You can reset your password by clicking the 'Forgot Password' link on the login page.</p>
+        <p><strong>Q: How do I enable two-factor authentication?</strong></p>
+        <p>A: You can enable two-factor authentication in the 'Security' settings in your account.</p>
+    </div>
+
+    <div class="faq-container" id="support">
+        <h3>Customer Support FAQ</h3>
+        <p><strong>Q: How can I contact customer support?</strong></p>
+        <p>A: You can contact us via email, live chat, or the 'Contact Us' section in your account.</p>
+        <p><strong>Q: What hours is customer support available?</strong></p>
+        <p>A: Our customer support team is available 24/7 to assist you with any inquiries.</p>
+    </div>
+
+    <!-- This is the contact form that is saved in database and shown to the admin  -->
+    <h2 id="Contacts">Contact Us</h2>
+    <div class="container">
+        <form id="contactForm" method="POST">
+            <div class="contact-form">
+                <input class="emails" type="email" id="email" name="email" placeholder="Email" required>
+                <div class="phone-container">
+                    <select id="countryCode" name="countryCode" class="country-code" style="font-size: 12px;">
+                        <option value="+1">USA +1 (USA)</option>
+                        <option value="+44">GB +44 (UK)</option>
+                        <option value="+91">IN +91 (India)</option>
+                        <option value="+61">AU +61 (Australia)</option>
+                        <option value="+81">JP +81 (Japan)</option>
+                        <option value="+33">FR +33 (France)</option>
+                        <option value="+49">DE +49 (Germany)</option>
+                        <option value="+86">CN +86 (China)</option>
+                        <option value="+977">NP +977 (Nepal)</option>
+                    </select>
+                    <input class="tels" type="tel" id="phone" name="phone" placeholder="Phone" required>
+                </div>
+                <input class="names" type="text" id="name" name="name" placeholder="Name" required>
+                <textarea class="mess" id="message" name="message" placeholder="Message" required></textarea>
+                <button class="submit-button" type="submit">Submit</button>
+                <div id="errorMessage" style="color: red; display: none; margin-top: 10px;"></div>
+            </div>
+        </form>
+
+    <div class="newsletter-form">
+        <div class="newsletter-content">
+            <h2>Your Request, Our Answers</h2>
+            <p>At AirWings Airlines, we are committed to making your travel experience smooth and hassle-free. Whether you need assistance with booking a flight, modifying your reservation, checking your flight status, or understanding baggage policies, our dedicated support team is here to help. You can find answers to common queries in our FAQs section or reach out to us directly through live chat, email, or phone.</p>
+            <hr>       
+        </div>
+        <div class="phone">
+            <h5 style="margin-top: -24px; justify-self: center;">
+                <a href="tel:+9779826160838">+977 9826160838</a> / 
+                <a href="tel:+9779807654321">9807654321</a>
+              </h5>
+            <h6 style="margin-top: -24px; justify-self: center;">Airwings, Herald College Kathmandu</h6>
+            <h6 style="margin-top: -25px; justify-self: center;">Mail: info.airwings@gmail.com</h6>
+            <h6 style="margin-top: -25px; justify-self: center; margin-bottom: -15px;">Website: info@airwings.com.np</h6>
+
+        </div>
+    </div>
+</div>    
+
+ <!-- Footer Section  -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="follow-us">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <!-- Subscribe Input  -->
+            <div class="subscribe">
+                <h3>Subscribe</h3>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Enter your email Address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <!-- Links in the footer  -->
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Sales and Refunds</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help Center</a>
+        </div>
+        <div class="copyright">
+            <p>© 2020 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script> 
+
+
+        <!-- start  -->
+                  <!-- Chat Section -->
+                  <div class="chat-container">
+                    <!-- Round Button -->
+                    <div id="chatButton" class="chat-button" onclick="openChatbox()">
+                        💬
+                    </div>
+                </div>
+            
+                <!-- Chatbox -->
+            <div id="chatbox" class="chatbox" onclick="focusInput()">
+              <div class="chatbox-header">
+                  <span class="chatbox-name">AirWing Chat</span>
+                  <button class="close-btn" onclick="closeChatbox()">X</button>
+              </div>
+              <div class="chatbox-body" id="chatbox-body">
+                  <p>Welcome to AirWing's Chatbot! How can I assist you?</p>
+              </div> 
+              <div class="chat-input"> 
+                  <input type="text" id="user-input" placeholder="Ask a question..." onkeypress="checkEnter(event)">
+                  <button onclick="sendMessage()">Send</button>
+              </div>
+            </div>
+
+     <!-- end  -->
+
+          <!--Start-->
+          <a href="#topbar">
+            <div class="backtop">
+              <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+            </div>
+          </a>
+<!-- end  -->
+
+<style>
+    
+    .footer {
+        background-color: #003366; /* Light gray background */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        height: 177px;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 0 20px; /* Add padding to the left and right */
+
+    }
+    
+    .follow-us h3,
+    .subscribe h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+    
+    /* For social icons in footer  */
+    .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #fff;
+        color: #333;
+        text-decoration: none;
+        margin-right: 10px;
+        border: 1px solid #ccc; /* Add a border */
+    }
+    
+    .social-icons i {
+        font-size: 16px; /* Adjust icon size */
+    }
+
+    /* This is for the subscribe form */
+    .subscribe-form {
+        display: flex;
+        align-items: center;
+        text-align: left;
+     
+    }
+    
+    .subscribe-form input[type="email"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        margin-right: 5px;
+        width: 200px; /* Adjust width */
+    }
+    
+    .subscribe-form button {
+        padding: 8px 12px;
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+                cursor: pointer;
+    }
+    
+    .footer-links {
+        margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+    
+    .copyright p {
+        font-size: 0.8em;
+        color: white;
+    }
+    
+    /* Add space for small social media icons */
+    .fa-solid {
+        margin: auto;
+    }
+</style>
+
+    <!-- Sumedha  -->
+     <!-- Start  -->
+      <!-- This is the script part for Question and Answers  -->
+    <script>
+        function showFAQ(sectionId) {
+            // Hide all FAQ sections
+            const allFaqs = document.querySelectorAll('.faq-container');
+            allFaqs.forEach(faq => faq.style.display = 'none');
+            
+            // Show the clicked section's FAQ
+            const faqToShow = document.getElementById(sectionId);
+            if (faqToShow) {
+                faqToShow.style.display = 'block';
+            }
+        }
+
+        // This is the js function to insert data into database, trim the unnessary part 
+        function validateForm() {
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let name = document.getElementById("name").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let errorMessage = document.getElementById("errorMessage");
+
+            if (email === "" || phone === "" || name === "" || message === "") {
+                errorMessage.style.display = "block";
+            } else {
+                errorMessage.style.display = "none";
+                alert("Form submitted successfully!");
+            }
+        }
+        
+
+        document.getElementById("contactForm").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Prevent default form submission
+            await validateForm();
+        });
+
+        async function validateForm() {
+            const form = document.getElementById("contactForm");
+            const formData = new FormData(form);
+            const errorMessage = document.getElementById("errorMessage");
+
+            // Extract values for validation
+            const name = formData.get("name")?.trim() || "";
+            const email = formData.get("email")?.trim() || "";
+            const countryCode = formData.get("countryCode")?.trim() || "";
+            const phone = formData.get("phone")?.trim() || "";
+            const message = formData.get("message")?.trim() || "";
+
+            // Validate required fields
+            if (!name || !email || !phone || !message) {
+                errorMessage.textContent = "All required fields (name, email, phone, message) must be filled.";
+                errorMessage.style.display = "block";
+                return;
+            } else {
+                errorMessage.style.display = "none";
+            }
+
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = "Please enter a valid email address.";
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            try {
+                const response = await fetch("http://127.0.0.1/Finalc/colab_final/contact.php", {
+                    method: "POST",
+                    body: formData,
+                    credentials: 'include' // Include cookies if needed
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                if (result.success) {
+                    alert("Message sent successfully!");
+                    form.reset();
+                } else {
+                    alert(`Failed to send message: ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Error submitting form:", error);
+                alert("An error occurred while submitting the form. Please try again.");
+            }
+        }  
+    
+    </script>
+
+<!-- Sumedha  -->
+ <!-- This is the css section for the contact form  -->
+    <style>
+h2 {
+            margin-left: 9%;
+            color: #155577;
+            font-size: 30px;
+            padding-top: 3%;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            margin-left: 200px;
+        }
+
+        .contact-form, .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .newsletter-form {
+            background-color: #b5d6f5;
+            border-radius: 10px;
+            width: 350px;
+        }
+
+        .newsletter-content {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .newsletter-content h2 {
+            margin-top: -10px;
+            padding-right: 2px ;
+            font-size: 1.5em;
+
+        }
+
+        .newsletter-content p {
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: -10px;
+            padding-top: 4px;
+            font-size: 14px;
+            line-height: 1.4;
+            text-align: center;
+            color: black;
+        }
+
+
+        .emails, .names, .tels, .mess, .country-code {
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #b5d6f5;
+            color: black;
+            outline: none;
+            width: 550px;
+            height: 60px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+            border-radius: 10px;
+        }
+
+        .phone-container {
+            display: flex;
+            gap: 10px;
+            width: 550px;
+        }
+
+        .country-code {
+            width: 150px;
+            font-size: 14px;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #155577;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1em;
+            width: 250px;
+            margin-left: 29%;
+        }
+
+        .submit-button:hover {
+            opacity: 0.8;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+
+/**start*/
+/**FAQs*/
+/* This is the css code for Question and Answer */
+.faq-container {
+            margin-top: 20px;
+            display: none;
+            text-align: left;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq-container h3 {
+            color: #155577;
+            margin-bottom: 10px;
+        }
+
+
+        .faq-container p {
+            margin: 10px 0;
+            font-size: 19px;
+            color: #333;
+        }
+
+.help-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin-top: 4%;
+        }
+        .help-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 150px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .help-box:hover {
+            transform: translateY(-5px);
+        }
+        .help-box i {
+            font-size: 30px;
+            color: #7db7ec;
+            margin-bottom: 10px;
+        }
+        .help-box p {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+
+h1 {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #155577;
+    }
+    .searches-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .searches-box {
+        display: flex;
+        align-items: center;
+        border: 2px solid #ccc;
+        border-radius: 25px;
+        padding: 10px;
+        width: 300px;
+        background-color: #fff;
+    }
+    .searches-box input {
+        border: none;
+        outline: none;
+        flex: 1;
+        padding: 5px;
+    }
+    .searches-button {
+    background-color: #155577;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+    .searches-button:hover {
+        background-color: #0056b3;
+    }
+    .searches-box i {
+        margin-right: 10px;
+        color: #888;
+    }
+
+/** end */
+
+/* General Styles */
+
+/* Main Container */
+
+</style>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="javascripts/auth.js"></script>
+<script src="javascripts/script.js"></script>
+<script src="javascripts/chat.js"></script>
+<script src="javascripts/index.js"></script>
+<script src="javascripts/search.js"></script>
+
+</body>
+
+</html>
