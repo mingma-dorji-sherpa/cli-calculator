@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirWing | Flight</title>
+    <link rel="shortcut icon" href="planes.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+      body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: url(cloud.jpg);
+}
+
+.flight-search {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.flight-search h2 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.flight-type {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.flight-type label {
+    font-size: 18px;
+    color: #34495e;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.flight-type input[type="radio"] {
+    accent-color: #007bff;
+    margin: 0;
+    cursor: pointer;
+}
+
+.flight-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.flight-form select,
+.flight-form input {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    width: 200px;
+    transition: border-color 0.3s;
+}
+
+.flight-form select:focus,
+.flight-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.flight-form button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.flight-form button:hover {
+    background-color: #0056b3;
+}
+
+.flight-results {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.flight-results h3 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.flight-card {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    width: 890px;
+}
+
+.flight-card:hover {
+    transform: translateY(-5px);
+}
+
+.flight-card p {
+    margin: 8px 0;
+    color: #34495e;
+    font-size: 16px;
+}
+
+.book-now {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.book-now:hover {
+    background-color: #218838;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="top-bar" id="topbar">
+            <p>Join AirWings today and save up to 20% on your flight using code TRAVEL at checkout. Promotion valid for new stars only.</p>
+        </div>
+        <nav>
+            <div class="logo">AirWings</div>
+            <div class="nav-bar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="flights.html">Flights</a></li>
+                    <li><a href="hotel_section.html">Hotels</a></li>
+                    <li><a href="help.html#Contacts">Contact</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+            </div>
+            <div class="nav-icons">
+                <div class="search-container" style="margin-top: 5px;">
+                    <i class="fa-solid fa-search" id="searchIcon" onclick="toggleSearchBar()"></i>
+                    <input type="text" id="searchBar" placeholder="Search..." class="search-bar">
+                    <div id="searchSuggestions" class="suggestions-container" style="display: none;"></div>
+                </div>
+                <div class="country">
+                    <p id="countryname">..</p>
+                    <img src="flag.png" id="countryflag" style="position: relative; height: 24px; width: 24px; margin-top: 8px; margin-left: -5px; margin-right: -5px; border: 1px solid black; border-radius: 50%;">
+                </div>                
+                <div id="userContainer" style="margin-left: -5px;">
+                    <a href="login.html" id="loginLink" style="text-decoration: none; font-size: 14px;">
+                        Sign In <i class="fa-solid fa-user" style="font-size: 16px;"></i>
+                    </a>
+                </div>                
+            </div>
+        </nav>
+    </header>
+
+    <!-- Flight Search Section -->
+    <section class="flight-search">
+        <h2>Search Flights</h2>
+        <div class="flight-type">
+            <label>
+                <input type="radio" name="flightType" value="oneway" checked onclick="toggleReturnDate()"> One-Way
+            </label>
+            <label>
+                <input type="radio" name="flightType" value="return" onclick="toggleReturnDate()"> Return
+            </label>
+        </div>
+        <div class="flight-form">
+            <select id="flight-from" required>
+                <option value="">Select Departure</option>
+                <option value="Tokyo">Tokyo</option>
+                <option value="London">London</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Ktm">Kathmandu</option>
+                <option value="New York">New York</option>
+                <option value="Sydney">Sydney</option>
+            </select>
+            <select id="flight-to" required>
+              <option value="">Select Departure</option>
+                <option value="Paris">Paris</option>
+                <option value="Sydney">Sydney</option>
+                <option value="New York">New York</option>
+                <option value="Tokyo">Tokyo</option>
+                <option value="London">London</option>
+                <option value="Pkr">Pokhara</option>
+            </select>
+            <input type="date" id="depart-date" required>
+            <input type="date" id="return-date" style="display: none;">
+            <input type="number" id="passengers" min="1" max="10" value="1" required placeholder="Passengers (1-10)" style="width: 90px;">
+            <button onclick="searchFlights()">Search Flights</button>
+        </div>
+    </section>
+
+    <!-- Flight Results Section -->
+    <section class="flight-results" id="flight-results">
+        <h3>Available Flights</h3>
+        <div id="flight-results-body"></div>
+    </section>
+
+    <!-- Chat Section -->
+    <div class="chat-container">
+        <div id="chatButton" class="chat-button" onclick="openChatbox()">
+            💬
+        </div>
+    </div>
+
+    <!-- Chatbox -->
+    <div id="chatbox" class="chatbox" onclick="focusInput()">
+        <div class="chatbox-header">
+            <span class="chatbox-name">AirWing Chat</span>
+            <button class="close-btn" onclick="closeChatbox()">X</button>
+        </div>
+        <div class="chatbox-body" id="chatbox-body">
+            <p>Welcome to AirWing's Chatbot! How can I assist you?</p>
+        </div> 
+        <div class="chat-input"> 
+            <input type="text" id="user-input" placeholder="Ask a question..." onkeypress="checkEnter(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#topbar">
+        <div class="backtop">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </div>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="follow-us">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="subscribe">
+                <h3>Subscribe</h3>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Enter your email Address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Sales and Refunds</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help center</a>
+        </div>
+        <div class="copyright">
+            <p>© 2020 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch locations from the database
+            fetch('http://localhost/Finalc/colab_final/connect.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ mode: "get_locations" })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const fromSelect = document.getElementById('flight-from');
+                    const toSelect = document.getElementById('flight-to');
+                    data.locations.forEach(location => {
+                        const optionFrom = document.createElement('option');
+                        optionFrom.value = location;
+                        optionFrom.textContent = location;
+                        fromSelect.appendChild(optionFrom);
+
+                        const optionTo = document.createElement('option');
+                        optionTo.value = location;
+                        optionTo.textContent = location;
+                        toSelect.appendChild(optionTo);
+                    });
+                } else {
+                    console.error('Error fetching locations:', data.message);
+                }
+            })
+            .catch(error => console.error('Error fetching locations:', error));
+        });
+
+        function toggleReturnDate() {
+            const returnDate = document.getElementById('return-date');
+            returnDate.style.display = document.querySelector('input[name="flightType"]:checked').value === 'return' ? 'block' : 'none';
+        }
+
+        function searchFlights() {
+            const flightType = document.querySelector('input[name="flightType"]:checked').value;
+            const from = document.getElementById('flight-from').value;
+            const to = document.getElementById('flight-to').value;
+            const departDate = document.getElementById('depart-date').value;
+            const returnDate = document.getElementById('return-date').value;
+            const passengers = document.getElementById('passengers').value;
+            const amount = document.getElementById('amount').value;
+
+            if (!from || !to || !departDate || (flightType === 'return' && !returnDate)) {
+                alert('Please fill all required fields.');
+                return;
+            }
+
+            fetch('http://localhost/Finalc/colab_final/connect.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    mode: `search_${flightType}_flights`,
+                    flight_from: from,
+                    flight_to: to,
+                    depart_date: departDate,
+                    return_date: returnDate,
+                    passengers: passengers, 
+                    amount: amount
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const resultsBody = document.getElementById('flight-results-body');
+                    resultsBody.innerHTML = '';
+                    data.flights.forEach(flight => {
+                        const card = document.createElement('div');
+                        card.className = 'flight-card';
+                        card.innerHTML = `
+                            <p><strong>From:</strong> ${flight.flight_from}</p>
+                            <p><strong>To:</strong> ${flight.flight_to}</p>
+                            <p><strong>Depart Date:</strong> ${flight.depart_date}</p>
+                            ${flight.return_date ? `<p><strong>Return Date:</strong> ${flight.return_date}</p>` : ''}
+                            <p><strong>Depart Time:</strong> ${flight.depart_time}</p>
+                            ${flight.return_time ? `<p><strong>Return Time:</strong> ${flight.return_time}</p>` : ''}
+                            <p><strong>Available Seats:</strong> ${flight.available_seats}</p>
+                            <p><strong>Amount:</strong> $${parseFloat(flight.amount).toFixed(2)}</p>
+                            <button class="book-now" onclick="bookFlight(${flight.id})">Book Now</button>
+                        `;
+                        resultsBody.appendChild(card);
+                    });
+                } else {
+                    document.getElementById('flight-results-body').innerHTML = `<p>${data.message}</p>`;
+                }
+            })
+            .catch(error => console.error('Error searching flights:', error));
+        }
+
+        function bookFlight(flightId) {
+            alert(`Booking flight with ID: ${flightId}. Please proceed to payment.`);
+            // Add booking logic here
+        }
+    </script>
+    <script src="javascripts/search.js"></script>
+    <script src="javascripts/index.js"></script>
+    <script src="javascripts/chat.js"></script>
+    <script src="javascripts/auth.js"></script>
+    <script src="javascripts/script.js"></script>
+    <script src="javascripts/autoflight.js"></script>
+</body>
+</html>

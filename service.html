@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airwing | Services</title>
+    <link rel="shortcut icon" href="planes.png" type="image/x-icon">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .topheader {
+            text-align: center;
+            background-color: #7db7ec;
+            color: white;
+            padding: 20px;
+            font-size: 1.5em;
+            border-bottom: 4px solid #5b94c6;
+            width: 100vw;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            padding: 20px;
+        }
+        .service-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            min-height: 180px;
+        }
+        .service-box:hover {
+            transform: scale(1.05);
+        }
+        .service-box img {
+            width: 120px;
+            height: 120px;
+            margin-left: 20px;
+            background: none;
+        }
+        .service-details {
+            flex: 1;
+            text-align: left;
+        }
+        .service-box p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #333;
+            line-height: 1.6;
+        }
+        .btn-select {
+            /* background-color: #7db7ec; */
+            background-color: #155577;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 10px; /* Updated size */
+            width: 100%;
+            max-width: 200px;
+            text-align: center;
+        }
+        .btn-select:hover {
+            background-color: #5b94c6;
+        }
+        .fire-text {
+            color: red;
+            font-weight: bold;
+        }
+        .confirmation-message {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border-left: 5px solid #28a745;
+            border-radius: 5px;
+            font-size: 0.9em;
+            width: 100%;
+            max-width: 200px;
+            text-align: center;
+        }
+        .warning-message {
+            display: none;
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .service-box img {
+            width: 120px;
+            height: 120px;
+            margin-left: 20px;
+            background-color: transparent; /* Ensures no unwanted background */
+        }
+    .top-bar {
+    background-color: #7db7ec;
+    color: white;
+    text-align: center;
+    padding: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+    width:100vw;
+
+}
+
+.top-bar .close-button {
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+ 
+/* footer start  */
+   
+.footer {
+    background-color: #003366; /* Light gray background */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    height: 177px;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 20px; /* Add padding to the left and right */
+
+}
+
+.follow-us h3,
+.subscribe h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+    margin-right: 10px;
+    border: 1px solid #ccc; /* Add a border */
+}
+
+.social-icons i {
+    font-size: 16px; /* Adjust icon size */
+}
+.subscribe-form {
+    display: flex;
+    align-items: center;
+    text-align: left;
+ 
+}
+
+.subscribe-form input[type="email"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-right: 5px;
+    width: 200px; /* Adjust width */
+}
+
+.subscribe-form button {
+    padding: 8px 12px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+            cursor: pointer;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9em;
+}
+
+.copyright p {
+    font-size: 0.8em;
+    color: white;
+}
+
+/* Add space for small social media icons */
+.fa-solid {
+    margin: auto;
+}
+
+/* footer end  */
+
+ /* end */
+    </style>
+</head>
+<body>
+      <!-- navigation bar -->
+      <header>
+        <div class="top-bar" id="topbar">
+            <p>Join AirWings today and save up to 20% on your flight using code TRAVEL at checkout. Promotion valid for new starsonly.</p>
+        </div>
+            <nav>
+                <div class="logo">AirWings</div>
+                <div class="nav-bar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="flights.html">Flights</a></li>
+                    <li><a href="hotel_section.html">Hotels</a></li>
+                    <li><a href="help.html#Contacts">Contact</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+                </div>
+                <div class="nav-icons">
+                    <div class="search-container" style="margin-top: 5px;">
+                        <i class="fa-solid fa-search" id="searchIcon" onclick="toggleSearchBar()"></i>
+                        <input type="text" id="searchBar" placeholder="Search..." class="search-bar">
+                        <div id="searchSuggestions" class="suggestions-container" style="display: none;"></div>
+                    </div>
+                    <div class="country">
+                        <p id="countryname">..</p>
+                        <img src="flag.png" id="countryflag" style="position: relative; height: 24px; width: 24px;margin-top: 8px; margin-left: -5px; margin-right: -5px; border: 1px solid black; border-radius: 50%;">
+                    </div>                
+                    <div id="userContainer" style="margin-left: -5px;">
+                        <a href="login.html" id="loginLink" style="text-decoration: none; font-size: 14px;">
+                            Sign In &nbsp;<i class="fa-solid fa-user" style="font-size: 16px;"></i>
+                        </a>
+                    </div>                
+                </div>
+            </nav>
+            </header>
+         <!-- end -->
+        <div class="topheader">
+            <p><b>Our Services</b></p>
+            <p>Exclusive travel deals, loyalty rewards, and 24/7 customer support</p>
+        </div>
+    </header>
+    <main>
+        <div class="service-box">
+            <div class="service-details">
+                <p><b>Flight & Hotel Packages</b></p>
+                <p>Save more with our exclusive flight and hotel bundle deals.</p>
+                <select style="background-color: #155577; margin-top: 10px; margin-bottom: -50px;" id="offerSelect" class="btn-select">
+                    <option>Select an Offer</option>
+                    <option>Weekend Getaway - 10% Off</option>
+                    <option>Luxury Stay - 15% Off</option>
+                    <option>Adventure Package - 20% Off</option>
+                </select>
+                <p id="offerWarning" class="warning-message" style=" margin-top: 10px; margin-bottom: -30px; justify-self: center; align-self: center;">⚠️ Please select an offer!</p>
+            </div>
+            <img src="flight.jpeg" alt="Flight & Hotel">
+        </div>
+        <div class="service-box">
+            <div class="service-details">
+                <p><b>Loyalty Program</b></p>
+                <p>Join our loyalty program and earn discounts for future bookings.</p>
+                <p>Use code: <b>FLY10</b> for <b>15% off!</b></p>
+                <p class="fire-text">🔥 Hurry! Only <b>10</b> codes left! 🔥</p>
+                <button class="btn-select" onclick="showConfirmation()">Join</button>
+                <p id="confirmation" class="confirmation-message" style="max-width:1200px; width: 120%;">✅ You have joined our loyalty program! Use code <b>FLY10</b> for huge discounts.</p>
+            </div>
+            <img src="loyalty.png" alt="Loyalty Program">
+        </div>
+        <div class="service-box">
+            <div class="service-details">
+                <p><b>24/7 Customer Support</b></p>
+                <p>We are here to assist you anytime, anywhere.</p>
+                <select id="actionSelect" class="btn-select" style="background-color: #155577; color: white; padding: 8px; border: none; border-radius: 4px;">
+                    <option value="" disabled selected>Select an action</option>
+                    <option value="contact">Contact Support</option>
+                    <option value="chat">Call an Agent</option>
+                    <option value="email">Email Us</option>
+                </select>
+                </div>
+            </div>
+        </div>
+    </main>
+
+                 <!-- start  -->
+                  <!-- Chat Section -->
+                  <div class="chat-container">
+                    <!-- Round Button -->
+                    <div id="chatButton" class="chat-button" onclick="openChatbox()">
+                        💬
+                    </div>
+                </div>
+            
+                <!-- Chatbox -->
+            <div id="chatbox" class="chatbox" onclick="focusInput()">
+              <div class="chatbox-header">
+                  <span class="chatbox-name">AirWing Chat</span>
+                  <button class="close-btn" onclick="closeChatbox()">X</button>
+              </div>
+              <div class="chatbox-body" id="chatbox-body">
+                  <p>Welcome to AirWing's Chatbot! How can I assist you?</p>
+              </div> 
+              <div class="chat-input"> 
+                  <input type="text" id="user-input" placeholder="Ask a question..." onkeypress="checkEnter(event)">
+                  <button onclick="sendMessage()">Send</button>
+              </div>
+            </div>
+
+     <!-- end  -->
+
+     <!--Start-->
+     <a href="#topbar">
+        <div class="backtop">
+          <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </div>
+      </a>
+           <!-- end  -->
+
+         <!-- start -->
+         <footer class="footer" >
+            <div class="footer-content">
+                <div class="follow-us">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <!-- <a href="#"><i class="fa-solid fa-ellipsis"></i> </a> -->
+                    </div>
+                </div>
+    
+                <div class="subscribe">
+                    <h3>Subscribe</h3>
+                    <div class="subscribe-form">
+                        <input type="email" placeholder="Enter your email Address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Sales and Refunds</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Help center</a>
+            </div>
+    
+            <div class="copyright">
+                <p>© 2020 All Rights Reserved</p>
+            </div>
+        </footer>
+
+    <script>
+        function showConfirmation() {
+            var offerSelect = document.getElementById("offerSelect");
+            var warningMessage = document.getElementById("offerWarning");
+
+            if (offerSelect.value === "Select an Offer") {
+                warningMessage.style.display = "block"; // Show warning message
+            } else {
+                warningMessage.style.display = "none"; // Hide warning message if an offer is selected
+                document.getElementById("confirmation").style.display = "block"; // Show confirmation message
+            }
+        }
+
+        document.getElementById("actionSelect").addEventListener("change", function () {
+    const selectedValue = this.value;
+
+    if (selectedValue === "contact") {
+        // Redirect to Contact Support section
+        window.location.href = "help.html#Contacts";
+    } else if (selectedValue === "chat") {
+        // Open phone dialer
+        window.location.href = "tel:+9779826160838";
+
+        // Reset the dropdown to default (optional)
+        this.value = "";
+    } else if (selectedValue === "email") {
+        // Open default email client
+        window.location.href = "mailto:susaaant@gmail.com";
+        // window.location.href = "https://mail.google.com/mail/u/0/#inbox?compose=CllgCJNvMfPKgcwDhQzJJmMNqmrRdJzncMHJFQdkFpqmdlpnbmgFzrzLdbvlgBxgQhdtMCrPsFL";
+
+        // Reset the dropdown to default (optional)
+        this.value = "";
+    }
+});
+
+    </script>
+         <script src="javascripts/search.js"></script>
+         <script src="javascripts/index.js"></script>
+         <script src="javascripts/chat.js"></script>
+         <script src="javascripts/auth.js"></script>
+         <script src="javascripts/script.js"></script>
+         <script src="javascripts/autoflight.js"></script>
+</body>
+</html>

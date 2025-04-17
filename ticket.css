@@ -1,0 +1,527 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    min-height: 1500px ;
+}
+
+ 
+ 
+ /** ticket details */
+/** start */
+.ticket-details {
+    height: 66px;
+    width: 600px;
+    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 4%;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    border: 2px solid black; /* Added black border */
+    max-width: 50%;
+    margin-left: 25%; /* Centered horizontally */
+    background: #155577; /* More vibrant gradient */
+
+}
+
+.progress-bar {
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px; /* Reduce height */
+    padding-right: 16px;
+}
+
+.progress-bar ul {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between; /* Ensures equal spacing */
+    align-items: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 12px; /* Reduced font size */
+    width: 100%;
+}
+
+.progress-bar li {
+    flex-grow: 1; /* Ensures equal spacing */
+    text-align: center; /* Centers text inside each item */
+    padding: 5px 12px; /* Smaller padding to reduce height */
+    border-radius: 15px; /* Smaller rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.progress-bar li.active {
+    background-color: #333;
+    color: white;
+}
+
+.progress-bar li:not(.active) {
+    color: #333;
+}
+
+.progress-bar li:hover {
+    background-color: #ddd; /* Light gray on hover */
+}
+
+ /** end */
+
+ /**start*/
+ /** ticket process */
+
+ body {
+    background: linear-gradient(135deg, white 0%, #c3cfe2 100%);
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    margin: 0;
+    position: relative;
+
+}
+
+/* Background Animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    /* animation: pulse 10s infinite ease-in-out; */
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+.container-wrapper {
+    display: flex;
+    gap: 30px;
+    perspective: 1000px;
+    margin-left: 220px;
+    margin-bottom: 4%;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    width: 500px;
+    height: 300px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+.price-details{
+    width: 500px;
+ }
+
+.container:hover {
+    transform: translateY(-8px) rotateX(8deg) scale(1.02); /* Added scale for hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    background: linear-gradient(90deg, #155577, #7db7ec); /* More vibrant gradient */
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+
+.container:hover .header::before {
+    opacity: 1;
+}
+
+.content {
+    padding: 25px;
+}
+
+/* Ticket Container Styling */
+.ticket .location {
+    font-weight: 700;
+    font-size: 20px;
+    color: #155577;
+    transition: color 0.3s ease;
+}
+
+.ticket .location:hover {
+    color: #155577;
+}
+
+.ticket .time {
+    font-size: 15px;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.ticket .flight-path {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 30px 0;
+    padding: 10px 0;
+    background: linear-gradient(90deg, rgba(255, 111, 97, 0.1), rgba(255, 159, 67, 0.1));
+    border-radius: 10px;
+}
+
+.ticket .flight-path::before {
+    content: '';
+    border-top: 2px dashed #bdc3c7;
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 50%;
+    transition: border-color 0.3s ease;
+}
+
+.ticket:hover .flight-path::before {
+    border-color: #155577;
+}
+
+.ticket .flight-path .arrow {
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid #155577;
+    border-right: 2px solid #155577;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.ticket .flight-path .arrow-left {
+    transform: rotate(-135deg);
+}
+
+.ticket:hover .flight-path .arrow {
+    transform: rotate(45deg) scale(1.2);
+    border-color: #7db7ec;
+}
+
+.ticket:hover .flight-path .arrow-left {
+    transform: rotate(-135deg) scale(1.2);
+    border-color: #7db7ec;
+}
+
+.ticket .flight-path .duration {
+    font-size: 15px;
+    color: #34495e;
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    padding: 5px 15px;
+    font-weight: 600;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ticket .flight-path .label {
+    font-size: 14px; /* Increased font size */
+    color: #7f8c8d;
+    text-align: center;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-left: 20px;
+}
+
+.ticket .flight-path .label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ff6f61" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>') no-repeat center;
+    background-size: contain;
+}
+
+.ticket .flight-path .label:last-child::before {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23ff6f61" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>') no-repeat center;
+    transform: rotate(180deg);
+}
+
+.ticket:hover .flight-path .label {
+    color: #155577;
+}
+
+.ticket .flight-path .code {
+    font-size: 13px;
+    font-weight: 600;
+    color: #155577;
+    text-align: center;
+}
+
+/* Price Details Container Styling */
+.price-details .item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #155577;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.price-details .item:hover {
+    background: rgba(255, 111, 97, 0.1);
+    transform: translateX(5px);
+}
+
+.price-details .total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    color: #155577;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 159, 67, 0.1);
+    border-radius: 8px;
+}
+
+.price-details .total span:last-child {
+    color: #155577;
+}
+ /** end */
+
+ /** start */
+ /** passenger details */
+
+ .tickets {
+    position: relative;
+    margin-left: 220px;
+    background: linear-gradient(135deg, #ffffff, #e0f7fa);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: 560px;
+    width: 1000px;
+    overflow: hidden;
+    transition: transform 0.3ms ease-in-out;
+    padding: 20px;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.airline-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #155577;
+}
+
+.ticket-info {
+    text-align: right;
+}
+
+.ticket-number, .ticket-date {
+    display: block;
+    font-size: 1rem;
+    color: #155577;
+}
+
+.flight-path {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.departure, .arrival {
+    text-align: center;
+    width: 100px;
+}
+
+.departure h3, .arrival h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.departure-time, .arrival-time {
+    display: block;
+    font-size: 1rem;
+    color: #155577;
+}
+
+.flight-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.flight-line {
+    border-left: 2px dashed #155577;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.flight-duration {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #155577;
+}
+
+.passenger-details h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #155577;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px;
+    justify-content: left;
+}
+
+.input-group {
+    width: 40%;
+}
+
+label {
+    font-size: 1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="date"], input[type="email"], input[type="tel"], input[type="text"] {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: #155577;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #7db7ec;
+}
+
+/* Ticket hover effect */
+.ticket:hover {
+    transform: translateY(-8px) rotateX(8deg) scale(1.02);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .ticket {
+        width: 90%;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+}
+
+/* Phone Number & Nationality Dropdown Styling */
+.phone-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.phone-container select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+#nationality {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+ /** end */
+
+ /* start */
+
+/* Top Bar */
+.top-bar {
+    background-color: #7db7ec;
+    color: white;
+    text-align: center;
+    padding: 3px 0;
+    font-size: 0.8rem;
+}
+
+.top-bar .close-button {
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}

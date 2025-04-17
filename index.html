@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirWing | Home</title>
+    <link rel="shortcut icon" href="planes.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sumedha  -->
+      <!-- navigation bar -->
+      <header>
+    <div class="top-bar" id="topbar">
+        <p>Join AirWings today and save up to 20% on your flight using code TRAVEL at checkout. Promotion valid for new starsonly.</p>
+    </div>
+        <nav>
+            <div class="logo">AirWings</div>
+            <div class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flights.html">Flights</a></li>
+                <li><a href="hotel_section.html">Hotels</a></li>
+                <li><a href="help.html#Contacts">Contact</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+            </div>
+            <div class="nav-icons">
+                <div class="search-container" style="margin-top: 5px;">
+                    <i class="fa-solid fa-search" id="searchIcon" onclick="toggleSearchBar()"></i>
+                    <input type="text" id="searchBar" placeholder="Search..." class="search-bar">
+                    <div id="searchSuggestions" class="suggestions-container" style="display: none;"></div>
+                </div>
+                <div class="country">
+                    <p id="countryname">..</p>
+                    <img src="flag.png" id="countryflag" style="position: relative; height: 24px; width: 24px;margin-top: 8px; margin-left: -5px; margin-right: -5px; border: 1px solid black; border-radius: 50%;">
+                </div>                
+                <div id="userContainer" style="margin-left: -5px;">
+                    <a href="login.html" id="loginLink" style="text-decoration: none; font-size: 14px;">
+                        Sign In &nbsp;<i class="fa-solid fa-user" style="font-size: 16px;"></i>
+                    </a>
+                </div>                
+            </div>
+        </nav>
+        </header>
+     <!-- end -->
+
+     <!-- Sumedha  -->
+     <!--start-->
+     <!--landing page-->
+     <div class="sky-container">
+        <img src="cloud.jpg" alt="Sky Background" class="sky-image">
+        <img src="aero.png" alt="Flying Plane" class="planeeeee">
+        <a href="flights.html"><button class="booking" style="background: linear-gradient(#2fa3c9, #3498db, #1a59ed); border-radius: 16px; text-align: center; position: absolute; bottom: -45px; right: 280px; font-size: 16px; color: azure;">Book Now →</button></a>
+     </div>
+       <!-- end -->
+             
+    <style>
+        /* Sky Background Styling */
+.sky-container {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    border: 25px solid white; /* Border around the sky */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Sky Image */
+.sky-image {
+    margin-top: 6%;
+    margin-bottom: 8%;
+    width: 70%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 95px; /* Rounded border */
+    margin-left: 1%;
+}
+
+/* Plane Image Styling */
+.planeeeee {
+    position: absolute;
+    bottom: -30px; /* Starts just below the sky */
+    left: 50%;
+    transform: translateX(-40%);
+    width: 500px; /* Adjust size as needed */
+}
+
+/* Plane Animation */
+@keyframes fly-out {
+    0% {
+        bottom: -20px;
+        opacity: 0;
+    }
+    50% {
+        bottom: 60px;
+        opacity: 1;
+    }
+    100% {
+        bottom: 120px;
+        opacity: 0;
+    }
+}
+
+    </style>
+    <!-- end -->
+
+          <!-- start -->
+          <div class="whole-container">`
+            <!-- Flight Class Section (Left Side) -->
+            <div class="flight-card">
+                <div class="header">Kathmandu - London</div>
+                <img src="lodnon.jpg" alt="Flight Image">
+                <div class="description">Choose your preferred flight class and get amazing benefits.</div>
+                <div class="more-info">
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+    
+            <!-- Booking Section (Right Side) -->
+            <div class="main-container">
+                <div class="child-container">
+                    <span class="plus-sign">+</span>
+                    <span>Kathmandu - Dubai</span>
+                    <button class="book-now-btn">Book Now</button>
+                </div>
+                <div class="child-container">
+                    <span class="plus-sign">+</span>
+                    <span>Canada - Switzerland</span>
+                    <button class="book-now-btn">Book Now</button>
+                </div>
+                <div class="child-container">
+                    <span class="plus-sign">+</span>
+                    <span>China - France </span>
+                    <button class="book-now-btn">Book Now</button>
+                </div>
+            </div>
+        </div>
+    <!--end -->
+
+          <!-- start -->
+    <!-- flight deals-->
+<div id="hotells" >
+        <!-- Line with Text in the Middle -->
+            <h2>Explore Popular Flight Deals</h2>      
+
+    <!-- This is the section of Card Flip animation  -->
+    <div class="flight-deals">
+        <div class="deal" onmouseover="flip(this)" onmouseout="unflip(this)">
+            <div class="card1">
+                <div class="front" style="background-image: url('flights/qatare.jpg')">
+                    <div class="info">
+                        <p><strong>Qatar Airlines</strong></p>
+                        <p>Going Places Together</p>
+                        <p class="price">$450</p>
+                    </div>
+                </div>
+                <div class="back">
+                    <video src="flights/b7542738dc40e64e4a59bc8912f6293e.mp4" muted loop></video>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="deal" onmouseover="flip(this)" onmouseout="unflip(this)">
+            <div class="card1">
+                <div class="front" style="background-image: url('flights/japan_airlines.jpg');">
+                    <div class="info">
+                        <p><strong>Japan Airlines</strong></p>
+                        <p>Excellence in Every Journey</p>
+                        <p class="price">$700</p>
+                    </div>
+                </div>
+                <div class="back">
+                    <video src="flights/e346eb7ab00853bf3a2ac596b6296c2b_720w.mp4" muted loop></video>
+                </div>
+            </div>
+        </div>
+        <div class="deal" onmouseover="flip(this)" onmouseout="unflip(this)">
+            <div class="card1">
+                <div class="front" style="background-image: url('flights/emirates.jpg');">
+                    <div class="info">
+                        <p><strong>Emirates Airlines</strong></p>
+                        <p>Fly better.</p>
+                        <p class="price">$900</p>
+                    </div>
+                </div>
+                <div class="back">
+                    <video src="flights/985d16d74301a7fe449d5dda4bb70590.mp4" muted loop></video>
+                </div>
+            </div>
+        </div>
+
+        <div class="deal" onmouseover="flip(this)" onmouseout="unflip(this)">
+            <div class="card1">
+                <div class="front" style="background-image: url('flights/etihad.jpg');">
+                    <div class="info">
+                        <p><strong>Etihad Airlines</strong></p>
+                        <p>Choose Well, Fly Better</p>
+                        <p class="price">$800</p>
+                    </div>
+                </div>
+                <div class="back">
+                    <video src="flights/fb4d824cd2fb5790e1f4c7bf3dc671f3.mp4" muted loop></video>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div> 
+     <!-- end-->
+
+     <div id="uniquee">
+         <!-- start -->
+         <h1>Explore Unique Places</h1>
+
+         <!-- Unique place container that when hovered turns back and also has image of place in back  -->
+         <div class="places-container">
+             <div class="card">
+                 <div class="card-inner">
+                     <div class="card-front" style="background-image: url('scenery/white_temple.jpg');">
+                         White Temple
+                     </div>
+                     <div class="card-back" style="background-image: url('scenery/glass_beach.jpg');">
+                         Glass Beach
+                     </div>
+                 </div>
+             </div>
+             <div class="card">
+                 <div class="card-inner">
+                     <div class="card-front" style="background-image: url('scenery/field_of_lights.jpg');">
+                         Field of Lights
+                     </div>
+                     <div class="card-back" style="background-image: url('scenery/fly_geyser.jpg');">
+                         Fly Geyser
+                     </div>
+                 </div>
+             </div>
+             <div class="card">
+                 <div class="card-inner">
+                     <div class="card-front" style="background-image: url('scenery/salar_de.jpg');">
+                         Salar de Uyuni
+                     </div>
+                     <div class="card-back" style="background-image: url('scenery/lake_como.jpg');">
+                         Lake Como
+                     </div>
+                 </div>
+             </div>
+             <div class="card">
+                 <div class="card-inner">
+                     <div class="card-front" style="background-image: url('scenery/haoyang_lake.jpg');">
+                         Haoyang Lake
+                     </div>
+                     <div class="card-back" style="background-image: url('scenery/miracle_garden.jpeg');">
+                         Miracle Garden
+                     </div>
+                 </div>
+             </div>
+             <div class="card">
+                 <div class="card-inner">
+                     <div class="card-front" style="background-image: url('scenery/blausee.jpg');">
+                         Blausee
+                     </div>
+                     <div class="card-back" style="background-image: url('scenery/badimalika.jpg');">
+                         Badimalika
+                     </div>
+                 </div>
+             </div>
+             <div class="card">
+                <div class="card-inner">
+                    <div class="card-front" style="background-image: url('scenery/Greece.jpg');">
+                        Greece
+                    </div>
+                    <div class="card-back" style="background-image: url('scenery/rara.jpg');">
+                        Rara Lake
+                    </div>
+                </div>
+            </div>
+         </div>
+        </div>
+     <!-- end -->
+
+     <!-- Sumedha  -->
+      <!-- This is the section for why choose us  -->
+       <!-- Start  -->
+     <section class="why-us-section">
+        <h2>Why Us</h2>
+        <div class="cards-container">
+            <div class="card3">
+                <div class="top-section">
+                    <h3>Trip Planning</h3>
+                </div>
+                <i class="fa-solid fa-map fa-3x" style="margin-bottom: 10px;"></i>
+                <p>Plan the whole trip with us. Get a flight ticket, choose a hotel and rent a car.</p>
+            </div>
+    
+            <div class="card3">
+                <div class="top-section">
+                    <h3>Honest Prices</h3>
+                </div>
+                <i class="fa-solid fa-tags fa-3x" style="margin-bottom: 10px;"></i>
+                <p>We offer the best prices out there in the market for flights, hotels & car rental.</p>
+            </div>
+    
+            <div class="card3">
+                <div class="top-section">
+                    <h3>Support 24/7</h3>
+                </div>
+                <i class="fa-solid fa-headset fa-3x" style=" margin-bottom: 10px;"></i>
+                <p>We're here for you. Our experienced team will provide reliable support as soon as possible.</p>
+            </div>
+        </div>
+    </section>
+    <!-- End  -->
+    
+
+    <!-- Sumedha  -->
+    <!-- start-->
+     <!-- review section-->
+     <section class="reviews-section">
+        <div class="reviews-header">
+            <h2>Reviews</h2>
+            <div class="review-arrows">
+                <button><i class="fas fa-arrow-left"></i></button>
+                <button><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    
+        <div class="reviews-container">
+            <div class="review-card">
+                <img src="profiles/profile1.jpg" alt="Mike Newton" class="profile-pic">
+                <span class="quote">"</span>
+                <p>I'd like to thank the whole AirWings staff for providing such a top class service. I loved everything starting from plane food and ending with the cheerful staff. Totally recommend AirWings as a reliable flight partner. </p>
+                <em class="author">Mike Newton</em>
+                <div class="date">18 April 2023</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+    
+            <div class="review-card">
+                <img src="profiles/profile2.jpg" alt="Ava Brown" class="profile-pic">
+                <span class="quote">"</span>
+                <p>The trip was amazing, thanks to AirWings staff for supporting us during our incredible journey. Helpedd a lot by using this website with its features, services, packages, flight deals was a top-notch for me. Would recommend everyone.</p>
+                <em class="author">Ava Brown</em>
+                <div class="date">13 March 2023</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+    
+            <div class="review-card">
+                <img src="pofile3.jpg" alt="Eve Williams" class="profile-pic">
+                <span class="quote">"</span>
+                <p>Me & my husband are very satisfied with both flight and accommodation services, would recommend AirWings as a cheap yet wonderful service. We were able to enjoy such a huge deals and packages for our honeymoon trip. Best flight booking website.</p>
+                <em class="author">Eve Williams</em>
+                <div class="date">23 April 2023</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<!--end-->
+
+
+    </section>
+
+                 <!-- start  -->
+                  <!-- Chat Section -->
+                  <div class="chat-container">
+                    <!-- Round Button -->
+                    <div id="chatButton" class="chat-button" onclick="openChatbox()">
+                        💬
+                    </div>
+                </div>
+            
+                <!-- Chatbox -->
+            <div id="chatbox" class="chatbox" onclick="focusInput()">
+              <div class="chatbox-header">
+                  <span class="chatbox-name">AirWing Chat</span>
+                  <button class="close-btn" onclick="closeChatbox()">X</button>
+              </div>
+              <div class="chatbox-body" id="chatbox-body">
+                  <p>Welcome to AirWing's Chatbot! How can I assist you?</p>
+              </div> 
+              <div class="chat-input"> 
+                  <input type="text" id="user-input" placeholder="Ask a question..." onkeypress="checkEnter(event)">
+                  <button onclick="sendMessage()">Send</button>
+              </div>
+            </div>
+
+     <!-- end  -->
+
+     <!--Start-->
+     <a href="#topbar">
+        <div class="backtop">
+          <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </div>
+      </a>
+           <!-- end  -->
+
+         <!-- start -->
+         <footer class="footer" >
+            <div class="footer-content">
+                <div class="follow-us">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <!-- <a href="#"><i class="fa-solid fa-ellipsis"></i> </a> -->
+                    </div>
+                </div>
+    
+                <div class="subscribe">
+                    <h3>Subscribe</h3>
+                    <div class="subscribe-form">
+                        <input type="email" placeholder="Enter your email Address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Sales and Refunds</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Help center</a>
+            </div>
+    
+            <div class="copyright">
+                <p>© 2020 All Rights Reserved</p>
+            </div>
+        </footer>
+
+<!--Start of Tawk.to Script-->
+<!-- <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/67f8a1b725ed18190f67c05d/1iohtagig';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script> -->
+    <!--End of Tawk.to Script-->
+
+     <script src="javascripts/search.js"></script>
+     <script src="javascripts/index.js"></script>
+     <script src="javascripts/chat.js"></script>
+     <script src="javascripts/auth.js"></script>
+     <script src="javascripts/script.js"></script>
+     <script src="javascripts/autoflight.js"></script>
+</body>
+</html>
+>>>>>>> 4810d17 (This is my admin.js)
