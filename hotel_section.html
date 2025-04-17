@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <title>AirWing | Hotels</title>
+    <link rel="shortcut icon" href="planes.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chat.css">
+    
+</head>
+<body>
+
+    <style>
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+
+
+
+.hotel-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Spacing between columns */
+    max-width: 1100px;
+    margin: auto;
+}
+
+.hotel-card {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+    margin-bottom: 30px; /* Added spacing between rows */
+}
+
+.hotel-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    border-radius: 15px;
+}
+
+.hotel-card:hover .hotel-content {
+    transform: rotateY(180deg);
+}
+
+.hotel-front, .hotel-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.hotel-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.hotel-back {
+    transform: rotateY(180deg);
+}
+
+.hotel-back video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hotel-details {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.stars {
+    color: gold;
+    font-size: 18px;
+}
+
+/* end */
+
+
+/** start */
+/** hotel packages */
+.special-card {
+            width: 80%;
+            margin-top: 3%;
+            padding: 20px;
+            height: 200px;
+            margin-left: 10%;
+        }
+
+h2 {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 36px;
+    font-weight: 600;
+    color: #1f6d97;
+}
+
+.package {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    align-items: center;
+}
+
+.text-left, .text-right {
+    width: 45%;
+    text-align: left;
+    margin-left: 4%;
+    font-size: 18px; /* Slightly larger text */
+    color: #444; /* Softer color */
+    line-height: 1.6; /* Improved readability */
+    letter-spacing: 0.5px;
+}
+
+.package img {
+    width: 43%;
+    height: 300px;
+    border-radius: 15px;
+    margin-left: 4%;
+}
+
+.reverse{
+    flex-direction: row-reverse;
+}
+/** end */
+
+
+/** special rooms */
+/** start */
+/* Section Title */
+.rooms h2 {
+    font-size: 28px;
+    margin: 20px 0;
+    color: #1f6d97;
+    margin-top: 36%;
+}
+
+/* Room Container */
+.room-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Room Card */
+.room-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Room Image */
+.room-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 5px solid #7db7ec;
+}
+
+/* Room Info */
+.room-info {
+    padding: 15px;
+}
+
+.room-info h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.room-info p {
+    font-size: 16px;
+    color: #666;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #7db7ec;
+    margin: 10px 0;
+}
+
+/* Facilities List */
+.facilities {
+    list-style: none;
+    padding: 0;
+}
+
+.facilities li {
+    text-align: left;
+    font-size: 14px;
+    padding: 5px 0;
+    color: #555;
+}
+/** end */
+
+/** start */
+/* Booking room */
+/* General Styling */
+
+
+/* Booking Section */
+.booking {
+    background: #fff;
+    padding: 15px;
+    margin: 37px auto;
+    width: 70%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Headline Styling */
+.booking h2 {
+    padding-bottom: 2px;
+    font-size: 22px;
+    color: #1f6d97;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+/* Price Display */
+#total-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e67e22;
+}
+
+/* Error Message */
+#error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+button {
+    background-color: #1f6d97;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #155577;
+}
+
+/* Availability Message */
+#availability-msg {
+    font-size: 16px;
+    color: green;
+    margin-top: 10px;
+}
+/* end */
+
+/** start */
+/* Reviews Section */
+
+/* Reviews Container */
+.reviews-container {
+    background: white;
+    padding: 20px;
+    margin: 23px auto;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #1f6d97;
+}
+
+/* Customer Reviews - Row Layout */
+.reviews {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Individual Review */
+.review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    width: 20%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 3px solid #1f6d97;
+}
+
+/* Review Profile Image */
+.review img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Review Content */
+.review-content h4 {
+    margin: 5px 0;
+    color: #333;
+}
+
+.review-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Star Ratings */
+.stars {
+    color: gold;
+}
+
+/* Leave a Review Container */
+.review-form-container {
+    background: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #1f6d97;
+}
+
+/* Form Group: Label + Input/Textarea */
+.form-group1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Labels (aligned left) */
+.form-group1 label {
+    width: 100px;
+    font-weight: bold;
+    color: #1f6d97;
+    text-align: right;
+    margin-right: 10px;
+}
+
+
+
+/* Inputs & Textarea */
+.review-form-container input,
+.review-form-container textarea,
+.review-form-container select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+}
+
+
+/* Placeholder Text Styling */
+.review-form-container input::placeholder,
+.review-form-container textarea::placeholder {
+    font-style: italic;
+    font-family: 'Verdana', sans-serif;
+    color: #888;
+    border-radius: 15px;
+}
+
+/* Submit Button */
+.review-form-container button {
+    background-color: #1f6d97;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-top: 12px;
+    transition: 0.3s;
+    margin-left: 28%;
+
+}
+
+.review-form-container button:hover {
+    background-color: #155577;
+}
+
+#error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .form-group label {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    .review-form-container input,
+    .review-form-container textarea,
+    .review-form-container select {
+        width: 100%;
+    }
+}
+
+/** end */
+
+</style>
+
+    
+ <!-- end -->
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Most Rated Hotels</title>
+     <link rel="stylesheet" href="styles.css">
+ </head>
+ <body>
+
+      <!-- navigation bar -->
+      <header>
+        <div class="top-bar" id="topbar">
+            <p>Join AirWings today and save up to 20% on your flight using code TRAVEL at checkout. Promotion valid for new starsonly.</p>
+        </div>
+            <nav>
+                <div class="logo">AirWings</div>
+                <div class="nav-bar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="flights.html">Flights</a></li>
+                    <li><a href="hotel_section.html">Hotels</a></li>
+                    <li><a href="help.html#Contacts">Contact</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+                </div>
+                <div class="nav-icons">
+                    <div class="search-container" style="margin-top: 5px;">
+                        <i class="fa-solid fa-search" id="searchIcon" onclick="toggleSearchBar()"></i>
+                        <input type="text" id="searchBar" placeholder="Search..." class="search-bar">
+                        <div id="searchSuggestions" class="suggestions-container" style="display: none;"></div>
+                    </div>
+                    <div class="country">
+                        <p id="countryname">..</p>
+                        <img src="flag.png" id="countryflag" style="position: relative; height: 24px; width: 24px;margin-top: 8px; margin-left: -5px; margin-right: -5px; border: 1px solid black; border-radius: 50%;">
+                    </div>                
+                    <div id="userContainer" style="margin-left: -5px;">
+                        <a href="login.html" id="loginLink" style="text-decoration: none; font-size: 14px;">
+                            Sign In &nbsp;<i class="fa-solid fa-user" style="font-size: 16px;"></i>
+                        </a>
+                    </div>                
+                </div>
+            </nav>
+            </header>
+
+ 
+     <h2>Most Rated Hotels</h2>
+ 
+     <div class="hotel-container">
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/burj AI Arab.jpg" alt="Burj Al Arab">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/cc4ba12e550da0175716be745dd31b50.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>Burj Al Arab</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+ 
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/ritz.jpg" alt="The Ritz-Carlton">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/c7858fc0c4035462494251f0929bd5b5.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>The Ritz-Carlton</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+ 
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/bay_sand.jpg" alt="Marina Bay Sands">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/d6674fdea43b24afe0ffbd1da12bcd6a.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>Marina Bay Sands</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+ 
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/waldrof.jpg" alt="Waldorf Astoria">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/81b956404bacf7cdb81a00c48721f3dd.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>Waldorf Astoria</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+ 
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/four.jpg" alt="Four Seasons">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/75e7e2d9c20f9be922371c060e044a1c.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>Four Seasons</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+ 
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/shangri.jpg" alt="Shangri-La">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/d96489260b1a96969b330f727a37e99e.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>Shangri-La</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+ 
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/mariental.jpg" alt="Mandarin Oriental">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/4ef48e0cad9851a42ff9be961bbb3f91.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>Mandarin Oriental</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+ 
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/st.jpg" alt="St. Regis">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/2a458592afdce9a48833a71474d49277.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>St. Regis</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+ 
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/pennisula.jpg" alt="The Peninsula">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/24f115503ebe4472d42589cd9b46c85d.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>The Peninsula</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+ 
+         <div class="hotel-card">
+             <div class="hotel-content">
+                 <div class="hotel-front">
+                     <img src="hotels/fafafa.jpg" alt="Fairmont">
+                 </div>
+                 <div class="hotel-back">
+                     <video src="hotels/ea7ad628c586a91af9e2d68a54541148.mp4" autoplay loop muted></video>
+                 </div>
+             </div>
+             <div class="hotel-details">
+                 <p>Fairmont</p>
+                 <div class="stars">★★★★★</div>
+             </div>
+         </div>
+     </div>
+ 
+     <!--start-->
+  <!--special hotel -->
+  <div class="special-card">
+  <h2 style="margin-left: -50px;">Special Hotel Packages</h2>
+    
+  <div class="package">
+    <img src="hima.jpg" alt="Hotel Package 1" class="package-image">
+
+      <div class="text-left">
+        <h3><i class="fas fa-hotel"></i> Deluxe Stay</h3>
+        <p>Explore our exclusive deals and special offers to make your stay unforgettable!</p>
+        <p class="price">Starting from <span class="highlight">$150/night</span></p>
+        <p class="catchy-text">Book now and enjoy a <strong>free spa session!</strong></p>
+    </div>      
+      
+  </div>
+
+  <div class="package reverse">
+    <img src="img2.jpg" alt="Hotel Package 2" class="package-image">
+
+      <div class="text-right">
+        <h3><i class="fas fa-star"></i> Luxury Suite</h3>
+        <p>Check out our premium suites and enjoy luxurious amenities tailored for your comfort.</p>
+        <p class="price">Exclusive offer at <span class="highlight">$250/night</span></p>
+        <p class="catchy-text">Limited-time deal: <strong>Complimentary breakfast included!</strong></p>      </div>
+  </div>
+  </div>
+
+         <!--end-->
+    
+     <!--start-->
+  <!--special rooms -->
+         <section class="rooms">
+            <h2 class="roomm" style="margin-left: 150px;">Room Types and Facilities</h2>
+    
+            <div class="room-container">
+    
+                <!-- Single Room -->
+                <div class="room-card">
+                    <img src="rooms/single.jpg" alt="Single Room">
+                    <div class="room-info">
+                        <h3>Single Room</h3>
+                        <p>Perfect for solo travelers. A cozy room with modern amenities.</p>
+                        <p class="price">$80 / night</p>
+                        <ul class="facilities">
+                            <li>✅ Free Wi-Fi</li>
+                            <li>✅ Air Conditioning</li>
+                            <li>✅ Room Service</li>
+                            <li>✅ TV & Minibar</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Double Room -->
+                <div class="room-card">
+                    <img src="rooms/double.jpg" alt="Double Room">
+                    <div class="room-info">
+                        <h3>Double Room</h3>
+                        <p>Spacious and comfortable, ideal for couples or friends.</p>
+                        <p class="price">$120 / night</p>
+                        <ul class="facilities">
+                            <li>✅ Free Wi-Fi</li>
+                            <li>✅ Air Conditioning</li>
+                            <li>✅ Room Service</li>
+                            <li>✅ TV & Minibar</li>
+                            <li>✅ Balcony with View</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Suite Room -->
+                <div class="room-card">
+                    <img src="rooms/suite.jpg" alt="Suite">
+                    <div class="room-info">
+                        <h3>Suite</h3>
+                        <p>Luxury and comfort with exclusive services and a private lounge.</p>
+                        <p class="price">$250 / night</p>
+                        <ul class="facilities">
+                            <li>✅ Free Wi-Fi</li>
+                            <li>✅ Air Conditioning</li>
+                            <li>✅ Room Service</li>
+                            <li>✅ TV & Minibar</li>
+                            <li>✅ Jacuzzi & Private Lounge</li>
+                            <li>✅ Complimentary Breakfast</li>
+                        </ul>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+     <!--end-->
+
+<!--room booking-->
+<!--start-->
+<section class="booking">
+    <h2>Your Perfect Stay Awaits – Book Now!</h2>
+    <form id="booking-form">
+        
+        <!-- Check-in & Check-out Dates -->
+        <div class="form-group">
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" required>
+        </div>
+
+        <!-- Number of Rooms & Guests -->
+        <div class="form-group">
+            <label for="rooms">Rooms:</label>
+            <select id="rooms">
+                <option value="">Select Rooms</option>
+                <option value="1">1 Room</option>
+                <option value="2">2 Rooms</option>
+                <option value="3">3 Rooms</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="guests">Guests:</label>
+            <select id="guests">
+                <option value="">Select Guests</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+            </select>
+        </div>
+
+        <!-- Room Type -->
+        <div class="form-group">
+            <label for="room-type">Room Type:</label>
+            <select id="room-type">
+                <option value="">Select Room Type</option>
+                <option value="100">Single - $100/night</option>
+                <option value="150">Double - $150/night</option>
+                <option value="250">Suite - $250/night</option>
+            </select>
+        </div>
+
+        <!-- Show Total Price -->
+        <div class="form-group">
+            <p>Total Price: <span id="total-price">$0</span></p>
+        </div>
+
+        <!-- Error Message -->
+        <p id="error-message"></p>
+
+        <!-- Submit Button -->
+        <button type="submit">Check Availability</button>
+
+    </form>
+    
+    <!-- Availability Message -->
+    <p id="availability-msg"></p>
+</section>
+<!--end-->
+
+
+<!--start-->
+<!--reviews-->
+    <!-- Customer Reviews Container -->
+        <h2>Our Customer Experience</h2>
+        <div class="reviews">
+            <div class="review">
+                <img src="profiles/profile1.jpg" alt="User 1">
+                <div class="review-content">
+                    <h4>Emma Johnson</h4>
+                    <p>"Amazing stay! The rooms were spotless, and the service was exceptional."</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+
+            <div class="review">
+                <img src="profiles/profile2.jpg" alt="User 2">
+                <div class="review-content">
+                    <h4>Michael Smith</h4>
+                    <p>"Great hotel with excellent facilities. The pool was fantastic!"</p>
+                    <div class="stars">⭐⭐⭐⭐</div>
+                </div>
+            </div>
+
+            <div class="review">
+                <img src="pofile3.jpg" alt="User 3">
+                <div class="review-content">
+                    <h4>Sarah Lee</h4>
+                    <p>"Loved the breakfast options! Would definitely come back."</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Leave a Review Container -->
+    <section class="review-form-container">
+        <h3>Leave Your Review</h3>
+        <div class="form-group1">
+            <label for="username">Name:</label>
+            <input type="text" id="username" placeholder="Enter your name">
+        </div>
+        <div class="form-group1">
+            <label for="user-review">Experience:</label>
+            <textarea id="user-review" placeholder="Write about your experience..."></textarea>
+        </div>
+        <div class="form-group1">
+            <label for="user-rating">Rating:</label>
+            <select id="user-rating">
+                <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                <option value="4">⭐⭐⭐⭐ - Good</option>
+                <option value="3">⭐⭐⭐ - Average</option>
+                <option value="2">⭐⭐ - Poor</option>
+                <option value="1">⭐ - Terrible</option>
+            </select>
+        </div>
+        <button id="submit-review">Publish Review</button>
+        <p id="error-message"></p>
+    </section>
+
+    <!-- footer start  -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="follow-us">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <!-- <a href="#"><i class="fa-solid fa-ellipsis"></i></a> -->
+                </div>
+            </div>
+
+            <div class="subscribe">
+                <h3>Subscribe</h3>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Enter your email Address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Sales and Refunds</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help center</a>
+        </div>
+
+        <div class="copyright">
+            <p>© 2020 All Rights Reserved</p>
+        </div>
+    </footer>
+<!-- footer end  -->
+
+                 <!-- start  -->
+                  <!-- Chat Section -->
+                  <div class="chat-container">
+                    <!-- Round Button -->
+                    <div id="chatButton" class="chat-button" onclick="openChatbox()">
+                        💬
+                    </div>
+                </div>
+            
+                <!-- Chatbox -->
+            <div id="chatbox" class="chatbox" onclick="focusInput()">
+              <div class="chatbox-header">
+                  <span class="chatbox-name">AirWing Chat</span>
+                  <button class="close-btn" onclick="closeChatbox()">X</button>
+              </div>
+              <div class="chatbox-body" id="chatbox-body">
+                  <p>Welcome to AirWing's Chatbot! How can I assist you?</p>
+              </div> 
+              <div class="chat-input"> 
+                  <input type="text" id="user-input" placeholder="Ask a question..." onkeypress="checkEnter(event)">
+                  <button onclick="sendMessage()">Send</button>
+              </div>
+            </div>
+    
+<!--end -->
+
+     <!--Start-->
+     <a href="#topbar">
+        <div class="backtop">
+          <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </div>
+      </a>
+           <!-- end  -->
+
+<script src="javascripts/script.js"></script>
+    <script src="javasscripts/hotel_section.js"></script>
+    <script src="javascripts/auth.js"></script>
+    <script src="javascripts/chat.js"></script>
+    <script src="javascripts/index.js"></script>
+    <script src="javascripts/search.js"></script>
+
+  
+
+ </body>
+ </html>
+ 
+</body>
+</html>
