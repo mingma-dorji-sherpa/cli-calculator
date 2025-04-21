@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirWing | Login</title>
+    <link rel="shortcut icon" href="plane.png" type="image/x-icon">
+    <link rel="shortcut icon" href="plane.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    background: linear-gradient(90deg, #e2e2e2,#c9d6ff);
+}
+.container{
+    position:relative;
+    width:850px;
+    height:550px;
+    /* background:#fff; */
+    background:white;
+    border-radius: 30px;
+    box-shadow:0 0 30px rgba(0,0,0, .2);
+    margin: 20px;
+    overflow:hidden;
+
+}
+.form-box{
+    position:absolute;
+    right:0;
+    width: 50%;
+    height:100%;
+    /* background:seagreen; */
+    display:flex;
+    align-items: center;
+    color:#333;
+    text-align: center;
+    padding: 40px;
+    z-index:1;
+    transition:.6s ease-in-out 1.2s, visibility 0s 1s;
+}
+.container.active .form-box{
+    right:50%;
+}
+
+.container.active .form-box.register{
+    visibility:visible;
+}
+.form{
+
+    width:100%;
+
+}
+.container h1{
+    font-size: 36px;
+    margin:-10px 0;
+}
+.input-box{
+    position:relative;
+    margin:30px 0;
+}
+.input-box input{
+    width:100%;
+    padding:13px 50px 13px 20px;
+    background:#eee;
+    border-radius: 8px;
+    border:none;
+    outline:none;
+    font-size: 16px;
+    font-weight: 500;
+    color:#333;
+    border: 2px solid#eee;
+}
+.input-box input::placeholder{
+    color:#888;
+    font-weight: 400;
+}
+.input-box input:focus {
+    border: 2px solid rgb(23, 160, 209);
+}
+.input-box i{
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size: 20px;
+    color:#888;
+}
+
+
+.forgot-link{
+    margin: -15px 0 15px;
+}
+.forgot-link a{
+    font-size: 14.5px;
+    color:#333;
+    text-decoration: none;
+}
+.btn{
+    width: 100%;
+    height: 48px;
+    background:#7494ec;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border:none;
+    cursor:pointer;
+    font-size: 16px;
+    color:#fff;
+    font-weight: 600;
+
+}
+.container p{
+    font-size: 14.5px;
+    margin:15px 0;
+    
+}
+
+.social-icons{
+    display:flex;
+    justify-content: center;
+}
+.social-icons a{
+    display:inline-flex;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 18px;
+    color:#333;
+    text-decoration: none;
+    margin: 0 8px;
+    align-items: center;
+    border:2px solid #7494ec;
+
+    svg{
+        height: 30px;
+        width: 30px;
+        font-size: 20px;
+        color:#040404;
+        margin-right: 10px;
+    }
+}
+
+
+
+.toggle-box{
+    position: absolute;
+    width:100%;
+    height:100%;
+
+}
+.toggle-box::before{
+    content:'';
+    position: absolute;
+    left:-250%;
+    width: 300%;
+    height: 100%;
+    background:#7494ec;
+    /* border:2px solid red; */
+    border-radius: 150px;
+    z-index: 2;
+    transition:1.8s ease-in-out;
+
+
+}
+.container.active .toggle-box::before{
+    left:50%;
+
+
+}
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    /* background:seagreen; */
+    color:#fff;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index:2;
+    transition: .6s ease-in-out;
+
+
+}
+.toggle-panel.toggle-left{
+    left:0;
+    transition-delay:1.2s;
+}
+.container.active .toggle-panel.toggle-left{
+    left:-50%;
+    transition-delay:.6s;
+}
+.toggle-panel.toggle-right{
+    right:-50%;
+    transition-delay:.6s;
+
+}
+.container.active .toggle-panel.toggle-right{
+    right:0;
+    transition-delay: 1.2s;
+}
+
+.toggle-panel .btn{
+    width:160px;
+    height: 46px;
+    background:transparent;
+    border:2px solid #fff;
+    box-shadow: none;
+    
+}
+@media screen and (max-width:650px) {
+    .container{
+        height:calc(100vh -40px);
+    }
+    .form-box{
+        background:#AEE8D6;
+        /* filter:opacity(0.4); */
+
+        width:100%;
+        height: 70%;
+        bottom:0;
+
+    }
+    .container.active .form-box{
+        right:0;
+        bottom:30%;
+    }
+    .toggle-box::before{
+        left: 0;
+        top: -270%;
+        width: 100%;
+        height: 300%;
+        border-radius: 20vw;
+    }
+    .container.active .toggle-box::before{
+        left:0;
+         top:70%;
+    }
+    .toggle-panel{
+        /* border:2px solid red; */
+        width: 100%;
+        height: 30%;
+    }
+    .toggle-panel.toggle-left{
+        top:0;
+
+    }
+    .container.active .toggle-panel.toggle-left{
+        left:0;
+        top:-30%;
+
+    }
+    .toggle-panel.toggle-right{
+        right: 0;
+        bottom:-30%;
+    }
+    .container.active .toggle-panel.toggle-right{
+        bottom:0;
+    } 
+}
+
+@media screen and (max-width:400px){
+    .form-box{
+        padding:20px;
+    }
+    .toggle-panel h1{
+        font-size:30px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box register" id="form-container">
+            <form action="connect.php" method="POST" id="loginForm">
+                <h1 id="form-title">Login</h1>
+                <input type="hidden" id="form-mode" name="mode" value="login">
+                <div class="input-box">
+                    <input type="text" name="Username" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box" id="email-box">
+                    <input type="email" name="Email" placeholder="Email">
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="Password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn" id="form-button">Login</button>
+                <p>or Login with social platform</p>
+                <div class="social-icons">
+                    <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=1077508048882-ogokqnn45fid8fp5305a82a393pis8ru.apps.googleusercontent.com&redirect_uri=http://127.0.0.1:5500/index.html&response_type=token&scope=email%20profile&prompt=consent">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+                            <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+                            <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+                            <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+                            <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+                        </svg>
+                        &nbsp;Login with Google&nbsp;
+                    </a>
+                                        
+                </div>
+            </form>
+        </div>
+        
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1 id="toggle-title">Hello, Welcome</h1>
+                <p id="toggle-text">Don't have an account?</p>
+                <button class="btn register-btn" id="toggle-button" onclick="toggleForm()">Register</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Welcome Back!</h1>
+                <p>Already have an account?</p>
+                <button class="btn login-btn" id="toggle-button" onclick="toggleForm()">Login</button>
+            </div>
+        </div>
+    </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector('form');
+    const container = document.querySelector('.container');
+    const registerBtn = document.querySelector('.register-btn');
+    const loginBtn = document.querySelector('.login-btn');
+    let isRegister = false;
+
+    document.getElementById("email-box").style.display = "none";
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const username = formData.get('Username');
+        const password = formData.get('Password');
+        formData.set('mode', isRegister ? 'register' : 'login');
+
+        // Check for admin credentials
+        if (!isRegister && username === "admin" && password === "admin") {
+            // Redirect to admin panel
+            alert("Admin login successful! Redirecting to admin panel...");
+            window.location.href = 'admin.html';
+            return; // Stop further processing
+        }
+
+        // Proceed with normal login or registration
+        try {
+            console.log("Sending request to connect.php with data:", Object.fromEntries(formData));
+            const response = await fetch('http://localhost/Finalc/colab_final/connect.php', {
+                method: 'POST',
+                body: formData,
+                credentials: 'include'
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status} - ${response.statusText}`);
+            }
+            
+            const result = await response.json();
+            console.log("Response from connect.php:", result);
+            
+            if (result.success) {
+                alert(result.message);
+
+                if (!isRegister) {
+                    // Save user data to localStorage after successful login
+                    const userData = {
+                        username: result.user?.username || username,
+                        email: result.user?.email || '',
+                        user_image: result.user?.user_image || null,
+                        loggedIn: true
+                    };
+                    localStorage.setItem('Username', username);
+                    localStorage.setItem('user', JSON.stringify(userData));
+                    window.location.href = 'index.html';
+                    // Note: updateNavbar() cannot be called here because the DOM for index.html isn't loaded yet
+                } else {
+                    toggleForm();
+                }
+            } else {
+                alert(result.message);
+            }
+        } catch (error) {
+            console.error("Error during form submission:", error);
+            alert("An error occurred: " + error.message);
+        }
+    });
+
+    function toggleForm() {
+        isRegister = !isRegister;
+        container.classList.toggle('active');
+        
+        setTimeout(() => {
+            document.getElementById("form-title").textContent = isRegister ? "Register" : "Login";
+            document.getElementById("form-button").textContent = isRegister ? "Register" : "Login";
+            document.getElementById("toggle-title").textContent = isRegister ? "Welcome Back!" : "Hello, Welcome";
+            document.getElementById("toggle-text").textContent = isRegister ? "Already have an account?" : "Don't have an account?";
+            document.getElementById("toggle-button").textContent = isRegister ? "Login" : "Register";
+        }, 600);
+        
+        setTimeout(() => {
+            document.getElementById("email-box").style.display = isRegister ? "block" : "none";
+        }, 500);
+    }
+
+    registerBtn.addEventListener('click', toggleForm);
+    loginBtn.addEventListener('click', toggleForm);
+});
+        </script>
+    <script type="module" src="javascripts/auth.js"></script>
+    <script src="javascripts/index.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirWing | TicketDetails</title>
+    <link rel="shortcut icon" href="planes.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="ticket.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sumedha  -->
+     <!-- Start  -->
+      <!-- This is the top bar and navbar  -->
+      <header>
+        <div class="top-bar" id="topbar">
+            <p>Join AirWings today and save up to 20% on your flight using code TRAVEL at checkout. Promotion valid for new starsonly.</p>
+        </div>
+            <nav>
+                <div class="logo">AirWings</div>
+                <div class="nav-bar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="flights.html">Flights</a></li>
+                    <li><a href="hotel_section.html">Hotels</a></li>
+                    <li><a href="help.html#Contacts">Contact</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="help.html">Help</a></li>
+                </ul>
+                </div>
+                <div class="nav-icons">
+                    <div class="search-container" style="margin-top: 5px;">
+                        <i class="fa-solid fa-search" id="searchIcon" onclick="toggleSearchBar()"></i>
+                        <input type="text" id="searchBar" placeholder="Search..." class="search-bar">
+                        <div id="searchSuggestions" class="suggestions-container" style="display: none;"></div>
+                    </div>
+                    <div class="country">
+                        <p id="countryname">..</p>
+                        <img src="flag.png" id="countryflag" style="position: relative; height: 24px; width: 24px;margin-top: 8px; margin-left: -5px; margin-right: -5px; border: 1px solid black; border-radius: 50%;">
+                    </div>                
+                    <div id="userContainer" style="margin-left: -5px;">
+                        <a href="login.html" id="loginLink" style="text-decoration: none; font-size: 14px;">
+                            Sign In &nbsp;<i class="fa-solid fa-user" style="font-size: 16px;"></i>
+                        </a>
+                    </div>                
+                </div>
+            </nav>
+            </header>
+    <!-- end  -->
+
+
+    <!-- Ticket details -->
+    <div class="ticket-details" style="margin-top: -50px;">
+        <nav class="progress-bar">
+            <ul>
+                <li>Ticket details</li>
+                <li>Passenger details</li>
+                <li>Baggage</li>
+                <li>Seating</li>
+                <li>Service package</li>
+                <li class="active">Summary & Payment</li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Ticket process -->
+    <div class="container-wrapper">
+        <!-- Ticket Container -->
+        <div class="container ticket">
+            <div class="header">Ticket</div>
+            <div class="content">
+                <div class="location">London</div>
+                <div class="time">Fri, May 11, 4:40 AM</div>
+                <div class="flight-path">
+                    <div class="arrow arrow-left"></div>
+                    <div class="label">Departure<br><span class="code">LHR</span></div>
+                    <div class="duration">0h 50m</div>
+                    <div class="label">Arrival<br><span class="code">MXP</span></div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="location">Milan</div>
+                <div class="time">Fri, May 11, 6:30 AM</div>
+            </div>
+        </div>
+
+        <!-- Price Details Container -->
+        <div class="container price-details">
+            <div class="header">Price details</div>
+            <div class="content">
+                <div class="item">
+                    <span>1 x Flight ticket</span>
+                    <span>$96</span>
+                </div>
+                <div class="item">
+                    <span>Taxes & fees</span>
+                    <span>$12</span>
+                </div>
+                <div class="total">
+                    <span>Total to pay</span>
+                    <span>$108</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Passenger details -->
+    <div class="tickets" style="min-height: 500px; height: 620px;">
+        <div class="ticket-header">
+            <div class="airline-logo" style="font-style: italic;">AirWings</div>
+            <div class="ticket-info">
+                <span class="ticket-number">#1234567890</span>
+                <span class="ticket-date">25 March 2025</span>
+            </div>
+        </div>
+    
+        <div class="flight-path">
+            <div class="departure">
+                <h3>New York</h3>
+                <span class="departure-time">10:00 AM</span>
+            </div>
+            <div class="flight-info">
+                <div class="flight-line"></div>
+                <div class="flight-duration">8h 30m</div>
+            </div>
+            <div class="arrival">
+                <h3>Los Angeles</h3>
+                <span class="arrival-time">12:30 PM</span>
+            </div>
+        </div>
+    
+        <div class="passenger-details">
+            <h4>Passenger Details</h4>
+            <form>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="passport">Passport No.</label>
+                        <input type="text" id="passport" placeholder="A1234567" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <!-- Phone Number Dropdown -->
+                    <div class="input-group">
+                        <label for="phone-country">Phone Number</label>
+                        <div class="phone-container">
+                            <select id="phone-country" onchange="updatePhoneCode()">
+                                <option value="+977">🇳🇵 Nepal (+977)</option>
+                                <option value="+1">🇺🇸 USA (+1)</option>
+                                <option value="+91">🇮🇳 India (+91)</option>
+                                <option value="+86">🇨🇳 China (+86)</option>
+                                <option value="+41">🇨🇭 Switzerland (+41)</option>
+                                <option value="+33">🇫🇷 France (+33)</option>
+                                <option value="+82">🇰🇷 Korea (+82)</option>
+                                <option value="+81">🇯🇵 Japan (+81)</option>
+                                <option value="+49">🇩🇪 Germany (+49)</option>
+                                <option value="+974">🇶🇦 Qatar (+974)</option>
+
+                            </select>
+                            <input type="tel" id="phone" placeholder="Enter number" required>
+                        </div>
+                    </div>
+    
+                    <!-- Nationality Dropdown -->
+                    <div class="input-group">
+                        <label for="nationality">Nationality</label>
+                        <select id="nationality">
+                            <option value="Nepali">Nepali</option>
+                            <option value="American">American</option>
+                            <option value="Indian">Indian</option>
+                            <option value="French">French</option>
+                            <option value="British">British</option>
+                            <option value="German">German</option>
+                            <option value="Swiss">Swiss</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Thai">Thai</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Korean">Korean</option>
+
+                        </select>
+                    </div>
+                </div>
+    
+                <button type="submit" style="margin-left: 20px; margin-right: 20px;">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+    
+     <!-- Chat Section -->
+     <div class="chat-container">
+        <div id="chatButton" class="chat-button" onclick="openChatbox()">
+            💬
+        </div>
+    </div> 
+
+    <!-- Chatbox -->
+<div id="chatbox" class="chatbox" onclick="focusInput()">
+  <div class="chatbox-header">
+      <span class="chatbox-name">AirWing Chat</span>
+      <button class="close-btn" onclick="closeChatbox()">X</button>
+  </div>
+  <div class="chatbox-body" id="chatbox-body">
+      <p>Welcome to AirWing's Chatbot! How can I assist you?</p>
+  </div> 
+  <div class="chat-input"> 
+      <input type="text" id="user-input" placeholder="Ask a question..." onkeypress="checkEnter(event)">
+      <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+     <!--Start-->
+     <a href="#topbar">
+        <div class="backtop">
+          <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </div>
+      </a>
+           <!-- end  -->
+
+<script>
+//     document.addEventListener("DOMContentLoaded", async () => {
+//     const userContainer = document.getElementById("userContainer");
+
+//     if (!userContainer) {
+//         console.error("userContainer not found in the DOM");
+//         return;
+//     }
+
+//     let userData = JSON.parse(localStorage.getItem("user")) || {};
+//     console.log("User data from localStorage:", userData);
+
+//     try {
+//         console.log("Fetching user data from check_session.php...");
+//         const response = await fetch('http://127.0.0.1/Finalc/colab_final/check_session.php', {
+//             method: 'GET',
+//             credentials: 'include'
+//         });
+
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status} - ${response.statusText}`);
+//         }
+
+//         const result = await response.json();
+//         console.log("Response from check_session.php:", result);
+
+//         if (result.loggedIn) {
+//             userData = {
+//                 username: result.user.username,
+//                 email: result.user.email,
+//                 user_image: result.user.user_image || null,
+//                 loggedIn: true
+//             };
+//             localStorage.setItem("user", JSON.stringify(userData));
+//             console.log("User data updated in localStorage:", userData);
+//         } else {
+//             localStorage.removeItem("user");
+//             localStorage.removeItem("Username");
+//             userData = null;
+//         }
+//     } catch (error) {
+//         console.error("Fetch error:", error);
+//     }
+
+//     localStorage.removeItem('redirectTo');
+//     updateNavbar(userData);
+// });
+
+// //This is the function to update navbar
+// function updateNavbar(user) {
+//     const userContainer = document.getElementById("userContainer");
+//     userContainer.innerHTML = "";
+
+//     if (user && user.loggedIn) {
+//         const username = user.username || "Guest";
+//         const email = user.email || "No email provided";
+//         const userImage = user.user_image || null;
+
+//         const profileContainer = document.createElement("div");
+//         profileContainer.classList.add("user-profile");
+//         profileContainer.style.cssText = `
+//             position: relative;
+//             display: flex;
+//             align-items: center;
+//             gap: 10px;
+//             cursor: pointer;
+//         `;
+
+//         profileContainer.innerHTML = `
+//             <span class="user-name">Hi, ${username}</span>
+//             ${userImage 
+//                 ? `<img src="${userImage}" alt="User Image" class="user-img" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">`
+//                 : `<i class="fa-solid fa-user" style="font-size: 24px;"></i>`
+//             }
+//         `;
+
+//         const logoutContainer = document.createElement("div");
+//         logoutContainer.classList.add("logout-container");
+//         logoutContainer.style.cssText = `
+//             position: absolute;
+//             top: 100%;
+//             right: 0;
+//             background: white;
+//             border-radius: 5px;
+//             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+//             display: none;
+//             flex-direction: column;
+//             padding: 10px;
+//             gap: 5px;
+//             z-index: 1000;
+//         `;
+
+//         logoutContainer.innerHTML = `
+//             <button class="picturebtn" style="padding: 5px 10px; cursor: pointer;">Change Picture</button>
+//             <button class="clear-btn" style="padding: 5px 10px; cursor: pointer;">Clear</button>
+//             <button class="logout-btn" style="padding: 5px 10px; cursor: pointer;">Logout</button>
+//         `;
+
+//         profileContainer.appendChild(logoutContainer);
+//         userContainer.appendChild(profileContainer);
+
+//         // Toggle logout menu
+//         profileContainer.addEventListener("click", (event) => {
+//             event.stopPropagation();
+//             logoutContainer.style.display = 
+//                 logoutContainer.style.display === "block" ? "none" : "block";
+//         });
+
+//         // Picture change functionality
+//         const pictureBtn = logoutContainer.querySelector(".picturebtn");
+//         pictureBtn.addEventListener("click", (event) => {
+//             event.stopPropagation();
+//             showPictureDialog(user);
+//         });
+
+//         // Clear button functionality
+//         const clearBtn = logoutContainer.querySelector(".clear-btn");
+//         clearBtn.addEventListener("click", (event) => {
+//             event.stopPropagation();
+//             let chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+//             chatHistory = chatHistory.filter(message => message.type === 'welcome');
+//             localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+//             hasShownInitialTime = false;
+//             loadChatHistory();
+//             alert("Chat history cleared!");
+//         });
+
+//         // Logout functionality
+//         const logoutBtn = logoutContainer.querySelector(".logout-btn");
+//         logoutBtn.addEventListener("click", (event) => {
+//             event.stopPropagation();
+//             showLogoutDialog();
+//         });
+
+//         // Close dropdown when clicking outside
+//         document.addEventListener("click", (event) => {
+//             if (!profileContainer.contains(event.target)) {
+//                 logoutContainer.style.display = "none";
+//             }
+//         });
+//     } else {
+//         showDefaultUserIcon();
+//     }
+// }
+
+// function showPictureDialog(user) {
+//     const dialog = document.createElement("div");
+//     dialog.classList.add("picture-dialog");
+//     dialog.innerHTML = `
+//         <div class="dialog-content">
+//             <h3>Change Profile Picture</h3>
+//             <div id="imagePreview" style="margin: 20px 0;">
+//                 ${user.user_image 
+//                     ? `<img id="previewImg" src="${user.user_image}" style="max-width: 200px; max-height: 200px;">`
+//                     : `<p>No image selected</p>`
+//                 }
+//             </div>
+//             <input type="file" id="imageUpload" accept="image/*" style="margin-bottom: 10px;">
+//             <div id="cropContainer" style="display: none; margin: 20px 0;">
+//                 <canvas id="cropCanvas" style="max-width: 300px; max-height: 300px;"></canvas>
+//             </div>
+//             <button id="cropBtn" style="display: none; margin: 5px;">Crop Image</button>
+//             <button id="deleteBtn" ${!user.user_image ? 'style="display: none;"' : ''}>Delete Image</button>
+//             <div style="margin-top: 20px;">
+//                 <button id="saveBtn" disabled>Save</button>
+//                 <button id="cancelBtn">Cancel</button>
+//             </div>
+//         </div>
+//     `;
+//     document.body.appendChild(dialog);
+
+//     let imageToCrop = null;
+//     let cropper = null;
+
+//     const imageUpload = document.getElementById("imageUpload");
+//     const previewImg = document.getElementById("previewImg");
+//     const cropCanvas = document.getElementById("cropCanvas");
+//     const cropBtn = document.getElementById("cropBtn");
+//     const deleteBtn = document.getElementById("deleteBtn");
+//     const saveBtn = document.getElementById("saveBtn");
+//     const cancelBtn = document.getElementById("cancelBtn");
+
+//     imageUpload.addEventListener("change", (e) => {
+//         const file = e.target.files[0];
+//         if (file) {
+//             const reader = new FileReader();
+//             reader.onload = (event) => {
+//                 if (cropper) cropper.destroy();
+//                 const img = new Image();
+//                 img.onload = () => {
+//                     imageToCrop = img;
+//                     cropCanvas.style.display = "block";
+//                     cropBtn.style.display = "inline-block";
+//                     saveBtn.disabled = false;
+//                     const ctx = cropCanvas.getContext("2d");
+//                     cropCanvas.width = 300;
+//                     cropCanvas.height = 300;
+//                     cropper = new Cropper(cropCanvas, {
+//                         aspectRatio: 1,
+//                         viewMode: 1,
+//                         data: {
+//                             width: 200,
+//                             height: 200
+//                         }
+//                     });
+//                     cropper.replace(event.target.result);
+//                 };
+//                 img.src = event.target.result;
+//             };
+//             reader.readAsDataURL(file);
+//         }
+//     });
+
+//     cropBtn.addEventListener("click", () => {
+//         if (cropper) {
+//             const croppedCanvas = cropper.getCroppedCanvas({
+//                 width: 200,
+//                 height: 200
+//             });
+//             if (previewImg) {
+//                 previewImg.src = croppedCanvas.toDataURL();
+//             } else {
+//                 const newImg = document.createElement("img");
+//                 newImg.id = "previewImg";
+//                 newImg.style.cssText = "max-width: 200px; max-height: 200px;";
+//                 newImg.src = croppedCanvas.toDataURL();
+//                 document.getElementById("imagePreview").innerHTML = "";
+//                 document.getElementById("imagePreview").appendChild(newImg);
+//             }
+//             deleteBtn.style.display = "inline-block";
+//         }
+//     });
+
+//     deleteBtn.addEventListener("click", () => {
+//         if (cropper) cropper.destroy();
+//         document.getElementById("imagePreview").innerHTML = "<p>No image selected</p>";
+//         cropCanvas.style.display = "none";
+//         cropBtn.style.display = "none";
+//         deleteBtn.style.display = "none";
+//         saveBtn.disabled = false;
+//         imageToCrop = null;
+//     });
+
+//     saveBtn.addEventListener("click", async () => {
+//         try {
+//             const formData = new FormData();
+//             if (imageToCrop) {
+//                 const croppedCanvas = cropper.getCroppedCanvas({
+//                     width: 200,
+//                     height: 200
+//                 });
+//                 const blob = await new Promise(resolve => croppedCanvas.toBlob(resolve));
+//                 formData.append("user_image", blob, "profile.jpg");
+//             } else if (!document.querySelector("#previewImg")) {
+//                 formData.append("delete_image", true);
+//             }
+
+//             const response = await fetch('http://127.0.0.1/Finalc/colab_final/update_profile_picture.php', {
+//                 method: 'POST',
+//                 credentials: 'include',
+//                 body: formData
+//             });
+
+//             if (response.ok) {
+//                 const result = await response.json();
+//                 if (result.success) {
+//                     const userData = JSON.parse(localStorage.getItem("user"));
+//                     userData.user_image = imageToCrop ? croppedCanvas.toDataURL() : null;
+//                     localStorage.setItem("user", JSON.stringify(userData));
+//                     updateNavbar(userData);
+//                     alert("Profile picture updated successfully!");
+//                 }
+//             }
+//         } catch (error) {
+//             console.error("Error updating picture:", error);
+//             alert("Failed to update picture");
+//         }
+//         dialog.style.opacity = "0";
+//         setTimeout(() => dialog.remove(), 600);
+//     });
+
+//     cancelBtn.addEventListener("click", () => {
+//         if (cropper) cropper.destroy();
+//         dialog.style.opacity = "0";
+//         setTimeout(() => dialog.remove(), 600);
+//     });
+// }
+
+// function showLogoutDialog() {
+//   const dialog = document.createElement("div");
+//   dialog.classList.add("custom-dialog");
+//   dialog.innerHTML = `
+//       <div class="dialog-content">
+//           <p>Are you sure you want to log out?</p>
+//           <button id="confirm-logout">Yes</button>
+//           <button id="cancel-logout">No</button>
+//       </div>
+//   `;
+//   document.body.appendChild(dialog);
+
+//   document.getElementById("confirm-logout").addEventListener("click", () => {
+//       localStorage.removeItem("user");
+//       localStorage.removeItem("access_token");
+//       window.history.replaceState({}, document.title, window.location.pathname);
+//       const userContainer = document.getElementById("userContainer");
+//       userContainer.innerHTML = "";
+//       showSignInButton();
+//       showDefaultUserIcon();
+
+//       dialog.querySelector(".dialog-content").innerHTML = `<p>✅ Logged out successfully!</p>`;
+//       setTimeout(() => {
+//           dialog.style.opacity = "0";
+//           setTimeout(() => dialog.remove(), 600);
+//       }, 600);
+//   });
+
+//   document.getElementById("cancel-logout").addEventListener("click", () => {
+//       dialog.style.opacity = "0";
+//       setTimeout(() => dialog.remove(), 600);
+//   });
+// }
+
+// // Updated styles
+// const style = document.createElement("style");
+// style.innerHTML = `
+//     .custom-dialog, .picture-dialog {
+//         position: fixed;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         background: white;
+//         opacity: 0.95;
+//         padding: 20px;
+//         border-radius: 10px;
+//         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+//         text-align: center;
+//         transition: opacity 0.6s ease;
+//         z-index: 1001;
+//         max-width: 400px;
+//     }
+//     .dialog-content button {
+//         margin: 5px;
+//         padding: 5px 15px;
+//         border: none;
+//         cursor: pointer;
+//         border-radius: 6px;
+//         background: #f0f0f0;
+//     }
+//     .dialog-content button:hover {
+//         background: #e0e0e0;
+//     }
+//     .user-profile:hover {
+//         opacity: 0.9;
+//     }
+//     #cropContainer {
+//         margin: 20px auto;
+//     }
+// `;
+// document.head.appendChild(style);
+
+// function showSignInButton() {
+//     const signInBtn = document.getElementById("signInBtn");
+//     if (signInBtn) signInBtn.classList.remove("hide");
+// }
+
+// function showDefaultUserIcon() {
+//     const userContainer = document.getElementById("userContainer");
+//     userContainer.innerHTML = `
+//         <a href="login.html" id="loginLink" style="text-decoration: none; font-size: 14px;">
+//             Sign In  <i class="fa-solid fa-user" style="font-size: 16px;"></i>
+//         </a>
+//     `;
+// }
+
+// handleOAuthRedirect();
+</script>
+    <script src="javascripts/auth.js"></script>
+    <script src="javascripts/chat.js"></script>
+    <script src="javascripts/script.js"></script>
+    <script src="javascripts/search.js"></script>
+    <script src="javascripts/index.js"></script>
+</body>
+</html>
