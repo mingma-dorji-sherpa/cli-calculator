@@ -1,0 +1,448 @@
+/* General Page Styles */
+body { 
+    font-family: Arial, sans-serif;
+    background-color: #f9f6f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    background: white;
+    border-radius: 30px;
+    position: fixed;
+    top: 20px;
+    left: 50px;
+}
+
+.nav-item {
+    padding: 10px 15px;
+    border-radius: 20px;
+    background: #ddd;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    color: white;
+}
+
+.nav-item.active {
+    background:#7db7ec;
+}
+
+/* Main Container Layout */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 60%;
+    max-width: 1200px;
+    margin-top: 80px;
+    margin-right: 520px;
+    gap: 40px; 
+    margin-bottom: 40px;
+}
+
+/* Left Section (Personal Details) */
+.personal-details {
+    background: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 25px;
+    width: 60%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.personal-details .form-group {
+    margin-bottom: 10px;
+}
+
+.personal-details .row {
+    margin-bottom: -5px;
+}
+
+.personal-details .header {
+    background:#7db7ec;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Profile Section (Right) */
+.right-container {
+    background: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 35%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-left: 15px;
+}
+
+.right-container .header {
+    background:#7db7ec;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profile-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid black;
+    margin: 15px 0;
+}
+
+/* Profile Buttons */
+.profile-buttons button {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-buttons button:hover {
+    background: #155577;
+    color: white;
+}
+
+/* Delete Button */
+.delete-btn {
+    width: 100%;
+    background: #155577;
+    padding: 12px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn button span {
+    font-size: 18px;
+    font-weight: lighter;
+    letter-spacing: 5px;
+}
+
+.delete-btn button:hover {
+    background-color: #155577;
+}
+
+/* Bottom Container */
+.bottom-container {
+    width: 34.2%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-right: 875px;
+    margin-bottom: 40px;
+}
+
+.bottom-container .header {
+    background:#7db7ec;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Form Styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+/* Row Layout for Forms */
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row .form-group {
+    width: 48%;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #7db7ec;
+    color: black;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.follow-us h3,
+.subscribe h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ccc;
+}
+
+.social-icons i {
+    font-size: 16px;
+}
+
+.subscribe-form {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-right: 5px;
+    width: 200px;
+}
+
+.subscribe-form button {
+    padding: 8px 12px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px auto;
+    max-width: 1200px;
+}
+
+.footer-links a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9em;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8em;
+    color: black;
+}
+
+/* Popup Styles */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.popup h2 {
+    margin: 0 0 10px;
+}
+
+.popup p {
+    margin: 10px 0;
+}
+
+.popup button {
+    margin: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background-color:#155577;
+    color: whitesmoke;
+}
+
+.btn-cancel {
+    background-color: #155577;
+    color: white;
+}
+
+/* MEDIA QUERIES */
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+        margin-right: 0;
+    }
+
+    .personal-details,
+    .right-container,
+    .bottom-container {
+        width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        left: 0;
+        width: 100%;
+        top: 0;
+        padding: 15px;
+        border-radius: 0;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .delete-btn {
+        font-size: 14px;
+    }
+
+    .delete-btn button span {
+        font-size: 16px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .follow-us, .subscribe {
+        width: 100%;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .subscribe-form {
+        justify-content: center;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+    .container {
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .personal-details,
+    .right-container,
+    .bottom-container {
+        width: 100%;
+    }
+
+    .delete-btn {
+        font-size: 15px;
+    }
+
+    .delete-btn button span {
+        font-size: 17px;
+    }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1200px) {
+    .container {
+        width: 60%;
+        max-width: 1200px;
+    }
+
+    .delete-btn {
+        font-size: 16px;
+    }
+
+    .delete-btn button span {
+        font-size: 18px;
+    }
+}

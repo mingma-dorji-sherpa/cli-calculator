@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar - Positioned to the Left -->
+    <div class="navbar">
+        <div class="nav-item active">General info</div>
+    </div>
+
+    <div class="container">
+        <div class="personal-details">
+            <div class="header">Personal details</div>
+            <div class="from-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label>First name</label>
+                        <input type="text" placeholder="Enter first name">
+                    </div>
+                    <div class="form-group">
+                        <label>Last name</label>
+                        <input type="text" placeholder="Enter last name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Nationality</label>
+                        <select>
+                            <option>UK</option>
+                            <option>USA</option>
+                            <option>Canada</option>
+                            <option>Australia</option>
+                            <option>India</option>
+                            <option>Germany</option>
+                            <option>France</option>
+                            <option>China</option>
+                            <option>Japan</option>
+                            <option>Brazil</option>
+                            <option>Russia</option>
+                            <option>South Africa</option>
+                            <option>Italy</option>
+                            <option>Mexico</option>
+                            <option>Netherlands</option>
+                            <option>Spain</option>
+                            <option>Sweden</option>
+                            <option>Norway</option>
+                            <option>Switzerland</option>
+                            <option>Nepal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of birth</label>
+                        <input type="date" value="DD/MM/YYYY">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label>Passport or ID number</label>
+                        <input type="text" placeholder="Enter ID number">
+                    </div>
+                    <div class="form-group">
+                        <label>Passport or ID expiration date</label>
+                        <input type="date" value="DD/MM/YYYY">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="number" value="Enter phone number">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" placeholder="Enter your email">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-container">
+            <div class="header">Profile Picture</div>
+            <div class="profile-info">
+                <img id="profile-pic" src="c:\Users\DELL\OneDrive\Pictures\drive-download-20240429T140247Z-001\IMG_7148.JPG" width="150" height="150" alt="Profile Picture">
+                <div class="profile-buttons">
+                    <input type="file" id="upload" style="display: none;" accept="image/*">
+                    <button id="uploadBtn">Upload photo</button>
+                    <button id="removeBtn">Remove photo</button>
+                </div>
+                <div class="delete-btn">
+                    <button id="deleteBtn"><span>Delete Profile</span></button>
+                    <!-- Success Message Box -->
+                    <div id="successMessage" style="display: none; background-color: #d4edda; color: #155724; padding: 4px; border: 1px solid #c3e6cb; border-radius: 5px; margin-top: 40px; width: 200px; margin-left: 30px; position: absolute; ">
+                        Profile deleted successfully!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Delete Confirmation Popup -->
+        <div class="popup-overlay" id="popupOverlay">
+            <div class="popup">
+                <h2>Confirm Delete</h2>
+                <p>Are you sure you want to delete your profile?</p>
+                <button class="btn-delete" id="confirmDeleteBtn">Delete</button>
+                <button class="btn-cancel" id="cancelDeleteBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div class="box">
+            <div class="header">Currency & Language</div>
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency">
+                            <option>$ (USD)</option>
+                            <option>€ (EUR)</option>
+                            <option>£ (GBP)</option>
+                            <option>₹ (INR)</option>
+                            <option>¥ (JPY)</option>
+                            <option>NPR (Nepalese Rupee)</option>
+                            <option>AUD (Australian Dollar)</option>
+                            <option>CAD (Canadian Dollar)</option>
+                            <option>CHF (Swiss Franc)</option>
+                            <option>CNY (Chinese Yuan)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="language">Language</label>
+                        <select id="language">
+                            <option>English (EN)</option>
+                            <option>Spanish (ES)</option>
+                            <option>French (FR)</option>
+                            <option>German (DE)</option>
+                            <option>Hindi (HI)</option>
+                            <option>Nepali (NE)</option>
+                            <option>Chinese (ZH)</option>
+                            <option>Japanese (JA)</option>
+                            <option>Russian (RU)</option>
+                            <option>Italian (IT)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="follow-us">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fa-solid fa-ellipsis"></i></a>
+                </div>
+            </div>
+
+            <div class="subscribe">
+                <h3>Subscribe</h3>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Enter your email Address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Sales and Refunds</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help center</a>
+        </div>
+
+        <div class="copyright">
+            <p>© 2020 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
