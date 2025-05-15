@@ -1,0 +1,240 @@
+.chat-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  z-index: 9999;
+}
+
+/* Chatbox */
+.chat-button {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 60px;
+height: 60px;
+background-color: #7054d4; /* Dark Blue */
+color: white;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 24px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+cursor: pointer;
+transition: all 0.3s ease;
+z-index: 9999;
+}
+
+.chat-button:hover {
+transform: scale(1.1);
+}
+
+.chatbox {
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
+  width: 290px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.chatbox-header {
+  background-color: #4aa0d5; /* Dark Blue */
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.chatbox-name {
+  font-size: 18px;
+}
+
+/* Updated close button styling */
+.close-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  height: auto;
+  padding: 6px; /* Ensures the text is clickable */
+  width: 20%;
+  margin-left: auto; /* Pushes the button to the right */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect only covering the text */
+.close-btn:hover {
+  background-color: #f1fffa;
+  border-radius: 6px;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+  color: rgb(194, 114, 114);
+}
+
+.chatbox-body {
+  margin-top: -20px;
+padding: 20px;
+flex-grow: 1;
+overflow-y: auto;
+font-size: 14px;
+
+p{
+  margin-bottom: -5px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #333;
+}
+}
+
+.message {
+  display: flex;
+  align-items: center;
+}
+
+.user-message {
+  flex-direction: row; /* Avatar on left, text on right */
+  position: relative;
+  top: 5px;
+  justify-content: flex-end;
+
+}
+
+.user-message p{
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.ai-message {
+  justify-content: flex-start;
+}
+
+.ai-message p{
+  margin-bottom: 5px;
+}
+.ai-avatar{
+  height: 24px;
+  width: 24px;
+  transform: scale(1.4);
+  border-radius: 50%;
+}
+
+.avatar-container {
+  margin-top: 10px;
+  margin-right: 5px; /* Space between avatar and text */
+}
+
+.user-avatar {
+  width: 24px; /* Adjust size as needed */
+  height: 24px;
+  border-radius: 50%; /* Circular avatar */
+  object-fit: cover; /* Ensures image fills space nicely */
+}
+
+.chat-input {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dddddd;
+  border-top: 1px solid #ccc;
+  gap: 2px;
+}
+
+.chat-input input {
+  width: 70%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  margin-right: 2px;
+  
+}
+
+.clear-btn{
+  margin-bottom: 8px;
+  border-radius: 4px;
+  height: 30px;
+  width: 36px;
+  padding: 8px 15px;
+}
+
+.chat-input button {
+  width: 21%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #4397aa;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #003366;
+}
+
+
+.typing-animation {
+  color: #666;
+  font-style: italic;
+  display: inline-flex; /* Changed to flex to better control spacing */
+  align-items: center;
+  gap: 2px; /* Adds small spacing between text and dots */
+}
+
+.typing-animation .dot1,
+.typing-animation .dot2,
+.typing-animation .dot3 {
+  align-self: flex-end;
+  display: inline-block;
+  width: 4px; /* Fixed width for consistency */
+  height: 4px; /* Fixed height for consistency */
+  border-radius: 50%; /* Makes them circular */
+  background-color: #666; /* Matches text color */
+}
+
+/* Animation for dot2 */
+.typing-animation .dot2 {
+  animation: blink 1.5s infinite;
+}
+
+/* Animation for dot3 */
+.typing-animation .dot3 {
+  animation: blink 1.5s infinite 0.5s; /* Delayed start by 0.5s */
+}
+
+/* Animation for dot1 - starts after others complete */
+.typing-animation .dot1 {
+  animation: delayedBlink 4.5s infinite; /* Longer duration to wait for others */
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  20% { opacity: 1; }
+  40% { opacity: 0.2; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes delayedBlink {
+  0% { opacity: 0.2; }      /* Stays dim at start */
+  66% { opacity: 0.2; }     /* Waits while others blink (about 3s) */
+  70% { opacity: 1; }       /* Starts blinking */
+  80% { opacity: 0.2; }     /* Fades out */
+  100% { opacity: 0.2; }    /* Returns to dim */
+}
