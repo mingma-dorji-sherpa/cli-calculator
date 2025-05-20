@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google-Like Search Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .search-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 250px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .results {
+            position: absolute;
+            width: 100%;
+            background: white;
+            border: 1px solid #ccc;
+            border-top: none;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+        }
+        .result-item a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            flex-grow: 1;
+        }
+        .result-item button {
+            padding: 5px 10px;
+            font-size: 12px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .result-item button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search hotels or airlines..." onkeyup="searchResults()">
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        const data = {
+            "Annapurna Hotel": "https://www.annapurnahotel.com/",
+            "Everest Hotel": "https://www.everesthotel.com/",
+            "Grand Hyatt": "https://www.hyatt.com/en-US/hotel/nepal/grand-hyatt-kathmandu",
+            "Hilton Hotel": "https://www.hilton.com/",
+            "Radisson Hotel": "https://www.radissonhotels.com/en-us/hotels/radisson-kathmandu",
+            "Soaltee Crowne Plaza": "https://www.ihg.com/crowneplaza/hotels/us/en/kathmandu/",
+            "Yak & Yeti Hotel": "https://www.yakandyeti.com/",
+            "Hyatt Regency Kathmandu": "https://www.hyatt.com/en-US/hotel/nepal/hyatt-regency-kathmandu/",
+            "Buddha Airlines": "https://www.buddhaair.com/",
+            "Yeti Airlines": "https://www.yetiairlines.com/",
+            "Shree Airlines": "https://www.shreeairlines.com/",
+            "Nepal Airlines": "https://www.nepalairlines.com.np/",
+            "Saurya Airlines": "https://www.sauryaairlines.com/",
+            "Himalaya Airlines": "https://www.himalaya-airlines.com/"
+        };
+        
+        function searchResults() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            resultsDiv.style.display = 'none';
+            
+            if (input.length === 0) return;
+            
+            let filteredResults = Object.keys(data).filter(name => name.toLowerCase().startsWith(input));
+            
+            if (filteredResults.length > 0) {
+                resultsDiv.style.display = 'block';
+            }
+            
+            filteredResults.forEach(name => {
+                let div = document.createElement('div');
+                div.className = 'result-item';
+                
+                let link = document.createElement('a');
+                link.href = data[name];
+                link.textContent = name;
+                link.target = "_blank";
+                
+                let button = document.createElement('button');
+                button.textContent = "Book Now";
+                button.onclick = function() { window.open(data[name], '_blank'); };
+                
+                div.appendChild(link);
+                div.appendChild(button);
+                resultsDiv.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
