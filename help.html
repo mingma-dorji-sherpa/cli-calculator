@@ -37,7 +37,7 @@
                     <div class="nav-icons">
                         <div class="search-container" style="margin-top: 5px;">
                             <i class="fa-solid fa-search" id="searchIcon" onclick="toggleSearchBar()"></i>
-                            <input type="text" id="searchBar" placeholder="Search..." class="search-bar">
+                            <input type="text" id="searchBar" placeholder="Search..." class="search-bar" style="display: none; padding: 5px; border: 1px solid #ccc; border-radius: 5px; width: 150px; transition: width 0.3s ease-in-out; margin-left: -146px; margin-right: -10px;">
                             <div id="searchSuggestions" class="suggestions-container" style="display: none;"></div>
                         </div>
                         <div class="country">
@@ -58,13 +58,12 @@
          <!-- Start  -->
           <!-- This is the help section containing search  -->
         <h1>Hello, how can we help?</h1>
-        <div class="searches-container">
+        <!-- <div class="searches-container">
             <div class="searches-box">
-                <!-- <i class="fas fa-search"></i> -->
                 <input type="text1" placeholder="Search..." style="background-color: white;">
                 <button class="searches-button" style="height: 50px;">Search</button>
             </div>
-        </div>
+        </div> -->
    
     <!-- This is the help container when clicked contains answer  -->
     <div class="help-container">
@@ -72,18 +71,12 @@
             <i class="fas fa-undo-alt"></i>
             <p>Refunds</p>
         </div>
-        <div class="help-box" onclick="showFAQ('orders')">
-            <i class="fas fa-box"></i>
-            <p>Orders</p>
-        </div>
+
         <div class="help-box" onclick="showFAQ('payments')">
             <i class="fas fa-credit-card"></i>
             <p>Payments</p>
         </div>
-        <div class="help-box" onclick="showFAQ('shipping')">
-            <i class="fas fa-truck"></i>
-            <p>Shipping</p>
-        </div>
+
         <div class="help-box" onclick="showFAQ('security')">
             <i class="fas fa-user-shield"></i>
             <p>Account Security</p>
@@ -103,14 +96,6 @@
         <p>A: Refunds typically take 3-5 business days to process, depending on your payment method.</p>
     </div>
 
-    <div class="faq-container" id="orders">
-        <h3>Orders FAQ</h3>
-        <p><strong>Q: How can I track my order?</strong></p>
-        <p>A: You can track your order through the 'My Orders' section in your account.</p>
-        <p><strong>Q: Can I change my order after it's placed?</strong></p>
-        <p>A: Orders can only be changed within 30 minutes of being placed. After that, you'll need to cancel and reorder.</p>
-    </div>
-
     <div class="faq-container" id="payments">
         <h3>Payments FAQ</h3>
         <p><strong>Q: What payment methods are accepted?</strong></p>
@@ -119,13 +104,6 @@
         <p>A: Yes, we use SSL encryption to ensure that your payment details are always safe and secure.</p>
     </div>
 
-    <div class="faq-container" id="shipping">
-        <h3>Shipping FAQ</h3>
-        <p><strong>Q: How long does shipping take?</strong></p>
-        <p>A: Shipping times vary by location, but generally, it takes 5-7 business days.</p>
-        <p><strong>Q: Can I change my shipping address after placing the order?</strong></p>
-        <p>A: Shipping addresses can only be updated before the order is dispatched. Please contact customer support for assistance.</p>
-    </div>
 
     <div class="faq-container" id="security">
         <h3>Account Security FAQ</h3>
@@ -142,6 +120,56 @@
         <p><strong>Q: What hours is customer support available?</strong></p>
         <p>A: Our customer support team is available 24/7 to assist you with any inquiries.</p>
     </div>
+
+<!-- This is for the accordian-->
+    <div class="accordion-container">
+        <div class="accordion-item">
+          <div class="accordion-header">1. How can I cancel a booking?</div>
+          <div class="accordion-content">
+            <p>You can cancel your booking from your account dashboard or by contacting our support within 24 hours of booking.</p>
+          </div>
+        </div>
+    
+        <div class="accordion-item">
+          <div class="accordion-header">2. How do I get a refund?</div>
+          <div class="accordion-content">
+            <p>Refunds are processed within 5–7 business days after a successful cancellation request.</p>
+          </div>
+        </div>
+    
+        <div class="accordion-item">
+          <div class="accordion-header">3. How do I check hotel availability?</div>
+          <div class="accordion-content">
+            <p>You can check hotel availability in the Hotels section by entering your preferred dates and location.</p>
+          </div>
+        </div>
+      </div>
+      <!--end-->
+
+      <!--ticket help-->
+      <div class="ticket-form-container">
+        <h2>📥 Submit an Issue</h2>
+        <form id="ticketForm">
+          <label for="category">Category:</label>
+          <select id="category" required>
+            <option value="">-- Select a Category --</option>
+            <option value="Booking Issue">Booking Issue</option>
+            <option value="Hotel Support">Hotel Support</option>
+            <option value="Payment Problem">Payment Problem</option>
+            <option value="Other">Other</option>
+          </select>
+    
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" placeholder="Enter a short subject" required>
+    
+          <label for="description">Description:</label>
+          <textarea id="description" placeholder="Describe your issue in detail..." required></textarea>
+    
+          <button type="submit" class="submit-btn">Submit Issue</button>
+          <div class="success-message" id="successMessage">✅ Your Issue has been submitted!</div>
+        </form>
+      </div>
+      <!--end-->
 
     <!-- This is the contact form that is saved in database and shown to the admin  -->
     <h2 id="Contacts">Contact Us</h2>
@@ -189,42 +217,43 @@
     </div>
 </div>    
 
- <!-- Footer Section  -->
-    <footer class="footer">
-        <div class="footer-content">
+  <!-- start -->
+         <footer class="footer" >
+            <div class="footer-content">
             <div class="follow-us">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" data-platform="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" data-platform="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" data-platform="telegram"><i class="fab fa-telegram"></i></a>
                 </div>
             </div>
-            <!-- Subscribe Input  -->
+    
             <div class="subscribe">
                 <h3>Subscribe</h3>
                 <div class="subscribe-form">
-                    <input type="email" placeholder="Enter your email Address">
-                    <button>Subscribe</button>
+                   <input type="email" id="emailInput" placeholder="Enter your email address">
+                   <button onclick="subscribe()">Subscribe</button>
                 </div>
             </div>
-        </div>
-        <!-- Links in the footer  -->
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Sales and Refunds</a>
-            <a href="#">Contact Us</a>
-            <a href="#">Help Center</a>
-        </div>
-        <div class="copyright">
-            <p>© 2020 All Rights Reserved</p>
-        </div>
-    </footer>
+            </div>
+    
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Sales and Refunds</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Help center</a>
+            </div>
+    
+            <div class="copyright">
+                <p>© 2020 All Rights Reserved</p>
+            </div>
+        </footer>
 
     <!-- Font Awesome for social icons -->
-    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script> 
+    <!-- <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>  -->
 
 
         <!-- start  -->
@@ -444,6 +473,56 @@
             }
         }  
     
+        /**accordian*/
+        const headers = document.querySelectorAll('.accordion-header');
+
+headers.forEach(header => {
+  header.addEventListener('click', () => {
+    const currentlyActive = document.querySelector('.accordion-header.active');
+    if (currentlyActive && currentlyActive !== header) {
+      currentlyActive.classList.remove('active');
+      currentlyActive.nextElementSibling.style.maxHeight = null;
+    }
+
+    header.classList.toggle('active');
+    const content = header.nextElementSibling;
+
+    if (header.classList.contains('active')) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      content.style.maxHeight = null;
+    }
+  });
+});
+/**end*/
+
+/**ticket help ing*/
+/**start*/
+const form = document.getElementById('ticketForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Simulated form submission
+      // In production, send data to backend using fetch/AJAX
+      const ticketData = {
+        category: document.getElementById('category').value,
+        subject: document.getElementById('subject').value,
+        description: document.getElementById('description').value
+      };
+
+      console.log("Ticket Submitted:", ticketData); // Replace with fetch('/submit-ticket', {...})
+
+      form.reset();
+      successMessage.style.display = 'block';
+
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 3000);
+    });
+/**end**/
+
     </script>
 
 <!-- Sumedha  -->
@@ -590,18 +669,22 @@ h2 {
             width: 150px;
             text-align: center;
             transition: transform 0.3s ease-in-out;
+            cursor: pointer;
         }
         .help-box:hover {
             transform: translateY(-5px);
+            cursor: pointer;
         }
         .help-box i {
             font-size: 30px;
             color: #7db7ec;
             margin-bottom: 10px;
+            cursor: pointer;
         }
         .help-box p {
             font-size: 14px;
             font-weight: bold;
+            cursor: pointer;
         }
 
 
@@ -609,6 +692,7 @@ h1 {
         margin-bottom: 20px;
         text-align: center;
         color: #155577;
+        margin-left: 5%;
     }
     .searches-container {
         display: flex;
@@ -647,7 +731,128 @@ h1 {
         color: #888;
     }
 
+
+/**accordian*/
+.accordion-container {
+      max-width: 600px;
+      margin: auto;
+      margin-top: 3%;
+    }
+
+    .accordion-item {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .accordion-header {
+      padding: 1rem;
+      cursor: pointer;
+      background-color: #155577;
+      color: white;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .accordion-header::after {
+      content: '+';
+      position: absolute;
+      right: 1rem;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-header.active::after {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 1rem;
+      background-color: #eef3f7;
+    }
+
+    .accordion-content p {
+      padding: 1rem 0;
+      margin: 0;
+    }
+
+    .accordion-content.open {
+      padding-bottom: 1rem;
+    }
 /** end */
+
+/**ticket helping*/
+/**start*/
+.ticket-form-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border: 1px solid #ddd;
+      margin-top: 3%;
+    }
+
+    .ticket-form-container h2 {
+      text-align: center;
+      color: #155577;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #155577;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      background-color: #f1f8fb;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background-color: #155577;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #104b66;
+    }
+
+    .success-message {
+      color: green;
+      margin-top: 1rem;
+      display: none;
+      text-align: center;
+    }
+/**end*/
 
 /* General Styles */
 
