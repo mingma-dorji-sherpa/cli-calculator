@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Airlines</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background: #003366;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            background: url('airline.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .section {
+            padding: 50px;
+            text-align: center;
+        }
+        .airlines {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .airline-card {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+        footer {
+            background: #003366;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Luxury Airlines</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#airlines">Airlines</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home" class="hero">
+        <h1>Experience the Finest Airlines Worldwide</h1>
+    </section>
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>We provide information about the most luxurious airlines, ensuring an unforgettable travel experience.</p>
+    </section>
+    <section id="airlines" class="section">
+        <h2>Top Airlines</h2>
+        <div class="airlines">
+            <div class="airline-card">SkyLux Airlines</div>
+            <div class="airline-card">Royal Air</div>
+            <div class="airline-card">Elite Wings</div>
+        </div>
+    </section>
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Email: info@luxuryairlines.com | Phone: +123 456 7890</p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Luxury Airlines. All Rights Reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const nav = document.querySelector("nav");
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 50) {
+                    nav.classList.add("scrolled");
+                } else {
+                    nav.classList.remove("scrolled");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
